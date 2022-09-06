@@ -11,11 +11,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        RestaurantDBModel rDBm = new RestaurantDBModel();
-
         FragmentManager frag = getSupportFragmentManager();
         SpecialMenuFragment specialMenuFragment = (SpecialMenuFragment) frag.findFragmentById(R.id.frameLayout);
+        RestaurantDBModel rDBm = new RestaurantDBModel();
         CreateRestaurants(rDBm);
         specialMenuFragment = new SpecialMenuFragment();
         frag.beginTransaction().add(R.id.frameLayout, specialMenuFragment).commit();
