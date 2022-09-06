@@ -24,20 +24,20 @@ public class RestaurantDBModel {
     }
 
     public ArrayList<Restaurant> getAllRestaurant(){
-        ArrayList<Restaurant> studentList = new ArrayList<>();
+        ArrayList<Restaurant> restaurantList = new ArrayList<>();
         Cursor cursor = db.query(RestaurantDBSchema.restaurantTable.NAME,null,null,null,null,null,null);
-        RestaurantDBCursor studentDBCursor = new RestaurantDBCursor(cursor);
+        RestaurantDBCursor restaurantDBCursor = new RestaurantDBCursor(cursor);
 
         try{
-            studentDBCursor.moveToFirst();
-            while(!studentDBCursor.isAfterLast()){
-                studentList.add(studentDBCursor.getRestaurant());
-                studentDBCursor.moveToNext();
+            restaurantDBCursor.moveToFirst();
+            while(!restaurantDBCursor.isAfterLast()){
+                restaurantList.add(restaurantDBCursor.getRestaurant());
+                restaurantDBCursor.moveToNext();
             }
         }
         finally {
             cursor.close();
         }
-        return studentList;
+        return restaurantList;
     }
 }
