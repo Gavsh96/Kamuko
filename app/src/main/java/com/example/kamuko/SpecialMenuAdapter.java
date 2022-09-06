@@ -7,7 +7,17 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class SpecialMenuAdapter extends RecyclerView.Adapter<SpecialMenuVH> {
+
+    RestaurantDBModel dbModel;
+
+    public SpecialMenuAdapter(RestaurantDBModel dbModel)
+    {
+        this.dbModel = dbModel;
+    }
+
     @NonNull
     @Override
     public SpecialMenuVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -19,12 +29,13 @@ public class SpecialMenuAdapter extends RecyclerView.Adapter<SpecialMenuVH> {
 
     @Override
     public void onBindViewHolder(@NonNull SpecialMenuVH holder, int position) {
-        holder.textView.setText("Test Restaurant Name");
+        ArrayList<Restaurant> restaurants = dbModel.getAllRestaurant();
+        holder.textView.setText(restaurants.get(position).getName());
         holder.imageView.setImageResource(R.drawable.hamburger);
     }
 
     @Override
     public int getItemCount() {
-        return 12;
+        return 5;
     }
 }

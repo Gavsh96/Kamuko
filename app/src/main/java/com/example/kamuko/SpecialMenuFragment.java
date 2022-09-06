@@ -25,9 +25,15 @@ public class SpecialMenuFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RestaurantDBModel dbModel;
 
     public SpecialMenuFragment() {
         // Required empty public constructor
+    }
+
+    public SpecialMenuFragment(RestaurantDBModel dbModel)
+    {
+        this.dbModel = dbModel;
     }
 
     /**
@@ -65,7 +71,7 @@ public class SpecialMenuFragment extends Fragment {
 
         RecyclerView rv = v.findViewById(R.id.SpecialMenuRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        SpecialMenuAdapter adapter = new SpecialMenuAdapter();
+        SpecialMenuAdapter adapter = new SpecialMenuAdapter(dbModel);
         rv.setAdapter(adapter);
         return v;
     }

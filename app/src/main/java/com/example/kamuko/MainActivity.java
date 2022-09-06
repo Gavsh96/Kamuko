@@ -14,8 +14,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager frag = getSupportFragmentManager();
         SpecialMenuFragment specialMenuFragment = (SpecialMenuFragment) frag.findFragmentById(R.id.frameLayout);
         RestaurantDBModel rDBm = new RestaurantDBModel();
+        rDBm.load(getApplicationContext());
         CreateRestaurants(rDBm);
-        specialMenuFragment = new SpecialMenuFragment();
+        specialMenuFragment = new SpecialMenuFragment(rDBm);
         frag.beginTransaction().add(R.id.frameLayout, specialMenuFragment).commit();
     }
 
