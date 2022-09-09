@@ -3,7 +3,13 @@ package com.example.kamuko;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.View;
+import android.widget.ImageView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,13 +17,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FragmentManager frag = getSupportFragmentManager();
-        SpecialMenuFragment specialMenuFragment = (SpecialMenuFragment) frag.findFragmentById(R.id.frameLayout);
+        ImageView restImage = findViewById(R.id.restImage);
+
         RestaurantDBModel rDBm = new RestaurantDBModel();
         rDBm.load(getApplicationContext());
         CreateRestaurants(rDBm);
+
+        FragmentManager frag = getSupportFragmentManager();
+        SpecialMenuFragment specialMenuFragment = (SpecialMenuFragment) frag.findFragmentById(R.id.frameLayout);
         specialMenuFragment = new SpecialMenuFragment(rDBm);
         frag.beginTransaction().add(R.id.frameLayout, specialMenuFragment).commit();
+
+        restImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Found no other way to transfer an object from one activity to another
+                // But using this way creates a class cast exception.
+
+                /*Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
+                intent.putExtra("CastedDB", (Parcelable) rDBm);
+                startActivity(intent);*/
+            }
+        });
     }
 
     private void CreateRestaurants(RestaurantDBModel rDBm)
