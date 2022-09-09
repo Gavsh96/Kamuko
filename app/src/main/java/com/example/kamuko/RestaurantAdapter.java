@@ -11,11 +11,11 @@ import java.util.ArrayList;
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantVH> {
 
-    RestaurantDBModel dbModel;
+    ArrayList<Restaurant> restaurants;
 
-    public RestaurantAdapter(RestaurantDBModel dbModel)
+    public RestaurantAdapter(ArrayList<Restaurant> restaurants)
     {
-        this.dbModel = dbModel;
+        this.restaurants = restaurants;
     }
 
     @NonNull
@@ -29,7 +29,6 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantVH> {
 
     @Override
     public void onBindViewHolder(@NonNull RestaurantVH holder, int position) {
-        ArrayList<Restaurant> restaurants = dbModel.getAllRestaurant();
         holder.textView.setText(restaurants.get(position).getName());
         holder.imageView.setImageResource(R.drawable.hamburger);
     }

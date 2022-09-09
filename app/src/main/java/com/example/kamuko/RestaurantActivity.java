@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
 public class RestaurantActivity extends AppCompatActivity {
 
     @Override
@@ -15,11 +17,11 @@ public class RestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant);
 
         Intent intent = getIntent();
-        RestaurantDBModel dbModel = (RestaurantDBModel) intent.getParcelableExtra("CastedDB");
+        ArrayList<Restaurant> list = intent.getParcelableArrayListExtra("ParceledRestaurant");
 
         RecyclerView rv = findViewById(R.id.RestaurantRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        RestaurantAdapter adapter = new RestaurantAdapter(dbModel);
+        RestaurantAdapter adapter = new RestaurantAdapter(list);
         rv.setAdapter(adapter);
     }
 }

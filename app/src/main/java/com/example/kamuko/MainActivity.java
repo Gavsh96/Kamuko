@@ -33,10 +33,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Found no other way to transfer an object from one activity to another
                 // But using this way creates a class cast exception.
+                ArrayList<Restaurant> list = rDBm.getAllRestaurant();
 
-                /*Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
-                intent.putExtra("CastedDB", (Parcelable) rDBm);
-                startActivity(intent);*/
+                Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
+                intent.putParcelableArrayListExtra("ParceledRestaurant", list);
+                startActivity(intent);
             }
         });
     }
