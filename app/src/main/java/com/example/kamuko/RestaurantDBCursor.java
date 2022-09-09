@@ -11,7 +11,7 @@ public class RestaurantDBCursor extends CursorWrapper {
     public Restaurant getRestaurant(){
         String id = getString(getColumnIndex(RestaurantDBSchema.restaurantTable.Cols.ID));
         String name = getString(getColumnIndex(RestaurantDBSchema.restaurantTable.Cols.NAME));
-        String img = getString(getColumnIndex(RestaurantDBSchema.restaurantTable.Cols.IMAGE));
+        Integer img = getInt(getColumnIndex(RestaurantDBSchema.restaurantTable.Cols.IMAGE));
         return new Restaurant(id, name, img);
     }
 }

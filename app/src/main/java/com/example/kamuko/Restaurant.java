@@ -7,10 +7,10 @@ import android.os.Parcelable;
 public class Restaurant implements Parcelable{
     String id;
     String name;
-    String img;
+    Integer img;
 
 
-    public Restaurant(String id, String name, String img)
+    public Restaurant(String id, String name, Integer img)
     {
         this.id = id;
         this.name = name;
@@ -20,7 +20,7 @@ public class Restaurant implements Parcelable{
     protected Restaurant(Parcel in) {
         id = in.readString();
         name = in.readString();
-        img = in.readString();
+        img = in.readInt();
     }
 
     public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
@@ -51,9 +51,9 @@ public class Restaurant implements Parcelable{
         this.name = name;
     }
 
-    public String getImg() { return img; }
+    public Integer getImg() { return img; }
 
-    public void setImg(String img) { this.img = img; }
+    public void setImg(Integer img) { this.img = img; }
 
     @Override
     public int describeContents() {
@@ -64,6 +64,6 @@ public class Restaurant implements Parcelable{
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(id);
         parcel.writeString(name);
-        parcel.writeString(img);
+        parcel.writeInt(img);
     }
 }

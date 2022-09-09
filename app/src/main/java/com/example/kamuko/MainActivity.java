@@ -44,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void CreateRestaurants(RestaurantDBModel rDBm)
     {
-        Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", "kukula");
-        Restaurant r2 = new Restaurant("1235", "Akbho Bell", "taco");
-        Restaurant r3 = new Restaurant("1236", "Gav's Pizza", "pizza");
-        Restaurant r4 = new Restaurant("1237", "Hindiye kade", "roti");
-        Restaurant r5 = new Restaurant("1238", "Beepan plaintea", "tea");
+        Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", R.drawable.restaurant);
+        Restaurant r2 = new Restaurant("1235", "Akbho Bell", R.drawable.restaurant);
+        Restaurant r3 = new Restaurant("1236", "Gav's Pizza", R.drawable.restaurant);
+        Restaurant r4 = new Restaurant("1237", "Hindiye kade", R.drawable.restaurant);
+        Restaurant r5 = new Restaurant("1238", "Beepan plaintea", R.drawable.restaurant);
 
         rDBm.addRestaurant(r1);
         rDBm.addRestaurant(r2);
