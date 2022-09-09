@@ -33,7 +33,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Found no other way to transfer an object from one activity to another
                 // But using this way creates a class cast exception.
-                ArrayList<Restaurant> list = rDBm.getAllRestaurant();
+                //ArrayList<Restaurant> list = rDBm.getAllRestaurant();
+
+                Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", R.drawable.restaurant);
+                Restaurant r2 = new Restaurant("1235", "Akbho Bell", R.drawable.restaurant);
+                Restaurant r3 = new Restaurant("1236", "Gav's Pizza", R.drawable.restaurant);
+                Restaurant r4 = new Restaurant("1237", "Hindiye kade", R.drawable.restaurant);
+                Restaurant r5 = new Restaurant("1238", "Beepan plaintea", R.drawable.restaurant);
+
+                ArrayList<Restaurant> list = new ArrayList<>();
+                list.add(r1);
+                list.add(r2);
+                list.add(r3);
+                list.add(r4);
+                list.add(r5);
 
                 Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
                 intent.putParcelableArrayListExtra("ParceledRestaurant", list);
