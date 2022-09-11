@@ -16,12 +16,12 @@ public class RestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
 
-        Intent intent = getIntent();
-        ArrayList<Restaurant> list = intent.getParcelableArrayListExtra("ParceledRestaurant");
-
+        RestaurantDBModel rDBm = new RestaurantDBModel();
+        rDBm.load(getApplicationContext());
+        
         RecyclerView rv = findViewById(R.id.RestaurantRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        RestaurantAdapter adapter = new RestaurantAdapter(list);
+        RestaurantAdapter adapter = new RestaurantAdapter(rDBm);
         rv.setAdapter(adapter);
     }
 }

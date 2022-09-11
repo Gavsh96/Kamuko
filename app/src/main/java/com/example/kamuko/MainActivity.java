@@ -2,6 +2,7 @@ package com.example.kamuko;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         RestaurantDBModel rDBm = new RestaurantDBModel();
         rDBm.load(getApplicationContext());
-        CreateRestaurants(rDBm);
+        //CreateRestaurants(rDBm);
 
         FragmentManager frag = getSupportFragmentManager();
         SpecialMenuFragment specialMenuFragment = (SpecialMenuFragment) frag.findFragmentById(R.id.frameLayout);
@@ -31,11 +32,7 @@ public class MainActivity extends AppCompatActivity {
         restImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Found no other way to transfer an object from one activity to another
-                // But using this way creates a class cast exception.
-                //ArrayList<Restaurant> list = rDBm.getAllRestaurant();
-
-                Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", R.drawable.restaurant);
+                /*Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", R.drawable.restaurant);
                 Restaurant r2 = new Restaurant("1235", "Akbho Bell", R.drawable.restaurant);
                 Restaurant r3 = new Restaurant("1236", "Gav's Pizza", R.drawable.restaurant);
                 Restaurant r4 = new Restaurant("1237", "Hindiye kade", R.drawable.restaurant);
@@ -46,11 +43,16 @@ public class MainActivity extends AppCompatActivity {
                 list.add(r2);
                 list.add(r3);
                 list.add(r4);
-                list.add(r5);
+                list.add(r5);*/
 
                 Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
-                intent.putParcelableArrayListExtra("ParceledRestaurant", list);
+                //intent.putParcelableArrayListExtra("ParceledRestaurant", list);
                 startActivity(intent);
+//                RestaurantFragment restaurantFragment = new RestaurantFragment(rDBm);
+//                FragmentTransaction fragmentTransaction = frag.beginTransaction();
+//                fragmentTransaction.replace(R.id.frameLayout, restaurantFragment);
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
             }
         });
     }

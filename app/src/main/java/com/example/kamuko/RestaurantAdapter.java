@@ -11,11 +11,13 @@ import java.util.ArrayList;
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantVH> {
 
+    RestaurantDBModel rDBm;
     ArrayList<Restaurant> restaurants;
 
-    public RestaurantAdapter(ArrayList<Restaurant> restaurants)
+    public RestaurantAdapter(RestaurantDBModel rDBm)
     {
-        this.restaurants = restaurants;
+        this.rDBm = rDBm;
+        restaurants = rDBm.getAllRestaurant();
     }
 
     @NonNull
@@ -35,6 +37,6 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantVH> {
 
     @Override
     public int getItemCount() {
-        return 5;
+        return restaurants.size();
     }
 }
