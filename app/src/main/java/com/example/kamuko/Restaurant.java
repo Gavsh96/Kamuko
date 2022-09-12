@@ -4,11 +4,13 @@ package com.example.kamuko;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Restaurant implements Parcelable{
+import java.util.ArrayList;
+
+public class Restaurant {
     String id;
     String name;
     Integer img;
-
+    ArrayList<Menu> menuArrayList;
 
     public Restaurant(String id, String name, Integer img)
     {
@@ -16,24 +18,6 @@ public class Restaurant implements Parcelable{
         this.name = name;
         this.img = img;
     }
-
-    protected Restaurant(Parcel in) {
-        id = in.readString();
-        name = in.readString();
-        img = in.readInt();
-    }
-
-    public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
-        @Override
-        public Restaurant createFromParcel(Parcel in) {
-            return new Restaurant(in);
-        }
-
-        @Override
-        public Restaurant[] newArray(int size) {
-            return new Restaurant[size];
-        }
-    };
 
     public String getId() {
         return id;
@@ -55,15 +39,8 @@ public class Restaurant implements Parcelable{
 
     public void setImg(Integer img) { this.img = img; }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(id);
-        parcel.writeString(name);
-        parcel.writeInt(img);
+    public void addMenuItems(Menu menu)
+    {
+        menuArrayList.add(menu);
     }
 }

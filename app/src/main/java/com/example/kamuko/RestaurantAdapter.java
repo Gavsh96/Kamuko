@@ -33,6 +33,12 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantVH> {
     public void onBindViewHolder(@NonNull RestaurantVH holder, int position) {
         holder.textView.setText(restaurants.get(position).getName());
         holder.imageView.setImageResource(restaurants.get(position).getImg());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
     }
 
     @Override
