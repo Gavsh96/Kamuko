@@ -10,7 +10,7 @@ public class Restaurant {
     String id;
     String name;
     Integer img;
-    ArrayList<Menu> menuArrayList;
+    Menu menu = new Menu();
 
     public Restaurant(String id, String name, Integer img)
     {
@@ -39,8 +39,14 @@ public class Restaurant {
 
     public void setImg(Integer img) { this.img = img; }
 
-    public void addMenuItems(Menu menu)
+    public void setMenuItems(String itemName, String des, Integer imgRef)
     {
-        menuArrayList.add(menu);
+        FoodData fd = new FoodData(itemName , des, imgRef);
+        menu.addItems(fd);
+    }
+
+    public Menu getMenu()
+    {
+        return menu;
     }
 }
