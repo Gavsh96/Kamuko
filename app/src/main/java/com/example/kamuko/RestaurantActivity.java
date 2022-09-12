@@ -19,9 +19,10 @@ public class RestaurantActivity extends AppCompatActivity {
         RestaurantDBModel rDBm = new RestaurantDBModel();
         rDBm.load(getApplicationContext());
         
+        ArrayList<Restaurant> list = rDBm.getAllRestaurant();
         RecyclerView rv = findViewById(R.id.RestaurantRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        RestaurantAdapter adapter = new RestaurantAdapter(rDBm);
+        RestaurantAdapter adapter = new RestaurantAdapter(list);
         rv.setAdapter(adapter);
     }
 }

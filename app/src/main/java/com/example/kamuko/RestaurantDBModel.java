@@ -21,6 +21,7 @@ public class RestaurantDBModel {
         cv.put(RestaurantDBSchema.restaurantTable.Cols.NAME, restaurant.getName());
         cv.put(RestaurantDBSchema.restaurantTable.Cols.IMAGE, restaurant.getImg());
         db.insert(RestaurantDBSchema.restaurantTable.NAME, null, cv);
+        //db.delete(RestaurantDBSchema.restaurantTable.NAME, null, null);
     }
 
     public ArrayList<Restaurant> getAllRestaurant(){

@@ -10,6 +10,7 @@ import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,12 +23,16 @@ public class MainActivity extends AppCompatActivity {
 
         RestaurantDBModel rDBm = new RestaurantDBModel();
         rDBm.load(getApplicationContext());
-        //CreateRestaurants(rDBm);
+        ArrayList<Restaurant> list = rDBm.getAllRestaurant();
+        if(list.isEmpty())
+        {
+            CreateRestaurants(rDBm);
+        }
 
-        FragmentManager frag = getSupportFragmentManager();
+        /*FragmentManager frag = getSupportFragmentManager();
         SpecialMenuFragment specialMenuFragment = (SpecialMenuFragment) frag.findFragmentById(R.id.frameLayout);
         specialMenuFragment = new SpecialMenuFragment(rDBm);
-        frag.beginTransaction().add(R.id.frameLayout, specialMenuFragment).commit();
+        frag.beginTransaction().add(R.id.frameLayout, specialMenuFragment).commit();*/
 
         restImage.setOnClickListener(new View.OnClickListener() {
             @Override
