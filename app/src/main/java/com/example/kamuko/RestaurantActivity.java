@@ -22,7 +22,7 @@ public class RestaurantActivity extends AppCompatActivity {
         ArrayList<Restaurant> list = rDBm.getAllRestaurant();
         RecyclerView rv = findViewById(R.id.RestaurantRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        RestaurantAdapter adapter = new RestaurantAdapter(list);
+        RestaurantAdapter adapter = new RestaurantAdapter(rDBm);
         rv.setAdapter(adapter);
     }
 }

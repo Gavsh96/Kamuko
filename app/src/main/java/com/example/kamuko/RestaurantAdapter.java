@@ -14,10 +14,10 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantVH> {
     RestaurantDBModel rDBm;
     ArrayList<Restaurant> restaurants;
 
-    public RestaurantAdapter(ArrayList<Restaurant> list)
+    public RestaurantAdapter(RestaurantDBModel rDBm)
     {
-        //this.rDBm = rDBm;
-        restaurants = list;
+        this.rDBm = rDBm;
+        restaurants = rDBm.getAllRestaurant();
     }
 
     @NonNull

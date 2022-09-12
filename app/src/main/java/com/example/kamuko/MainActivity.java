@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             CreateRestaurants(rDBm);
         }
 
+        //CreateRestaurants(rDBm);
         /*FragmentManager frag = getSupportFragmentManager();
         SpecialMenuFragment specialMenuFragment = (SpecialMenuFragment) frag.findFragmentById(R.id.frameLayout);
         specialMenuFragment = new SpecialMenuFragment(rDBm);
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", R.drawable.restaurant);
         Restaurant r2 = new Restaurant("1235", "Akbho Bell", R.drawable.restaurant);
         Restaurant r3 = new Restaurant("1236", "Gav's Pizza", R.drawable.restaurant);
-        Restaurant r4 = new Restaurant("1237", "Hindiye kade", R.drawable.restaurant);
+        Restaurant r4 = new Restaurant("1237", "Matara Bath kade", R.drawable.matarabathkade);
         Restaurant r5 = new Restaurant("1238", "Beepan plaintea", R.drawable.restaurant);
 
         rDBm.addRestaurant(r1);
