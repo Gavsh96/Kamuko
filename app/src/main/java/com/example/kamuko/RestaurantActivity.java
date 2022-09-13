@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 public class RestaurantActivity extends AppCompatActivity implements RestaurantInterface{
 
+    ArrayList<Restaurant> list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +21,7 @@ public class RestaurantActivity extends AppCompatActivity implements RestaurantI
         RestaurantDBModel rDBm = new RestaurantDBModel();
         rDBm.load(getApplicationContext());
         
-        ArrayList<Restaurant> list = rDBm.getAllRestaurant();
+        list = rDBm.getAllRestaurant();
         RecyclerView rv = findViewById(R.id.RestaurantRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
         RestaurantAdapter adapter = new RestaurantAdapter(rDBm, this);
@@ -29,6 +31,7 @@ public class RestaurantActivity extends AppCompatActivity implements RestaurantI
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(this, MenuActivity.class);
+        intent.putExtra("id", list.get(position).getId());
         startActivity(intent);
     }
 }

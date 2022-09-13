@@ -60,11 +60,22 @@ public class MainActivity extends AppCompatActivity {
         Restaurant r3 = new Restaurant("1236", "Gav's Pizza", R.drawable.restaurant);
         Restaurant r4 = new Restaurant("1237", "Matara Bath kade", R.drawable.matarabathkade);
         Restaurant r5 = new Restaurant("1238", "KFC", R.drawable.kfcimage);
+        Menu m1 = new Menu("01", "Fries", R.drawable.profile, r5.getId());
+        Menu m2 = new Menu("02", "Chicken Burger", R.drawable.profile, r5.getId());
+        Menu m3 = new Menu("03", "Beef Burger", R.drawable.profile, r5.getId());
+        Menu m4 = new Menu("04", "Pork Burger", R.drawable.profile, r5.getId());
+        Menu m5 = new Menu("05", "Mutton Burger", R.drawable.profile, r5.getId());
 
         rDBm.addRestaurant(r1);
         rDBm.addRestaurant(r2);
         rDBm.addRestaurant(r3);
         rDBm.addRestaurant(r4);
         rDBm.addRestaurant(r5);
+
+        rDBm.addMenu(m1);
+        rDBm.addMenu(m2);
+        rDBm.addMenu(m3);
+        rDBm.addMenu(m4);
+        rDBm.addMenu(m5);
     }
 }

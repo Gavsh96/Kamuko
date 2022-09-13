@@ -17,6 +17,7 @@ public class RestaurantDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         sqLiteDatabase.execSQL("create table "+ RestaurantDBSchema.restaurantTable.NAME+"("+RestaurantDBSchema.restaurantTable.Cols.ID+" Text, "+RestaurantDBSchema.restaurantTable.Cols.NAME+" Text, "+RestaurantDBSchema.restaurantTable.Cols.IMAGE+ " Text);");
+        sqLiteDatabase.execSQL("create table "+ RestaurantDBSchema.menuTable.NAME+"("+RestaurantDBSchema.menuTable.Cols.ID+" Text, "+RestaurantDBSchema.menuTable.Cols.NAME+" Text, "+RestaurantDBSchema.menuTable.Cols.IMAGE+" Text, "+RestaurantDBSchema.menuTable.Cols.RESTID+ " Text);");
     }
 
     @Override

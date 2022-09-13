@@ -4,35 +4,43 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Menu {
+    String id;
+    String name;
+    Integer img;
+    String restId;
 
-    ArrayList<FoodData> menuList;
-    Iterator<FoodData> it;
-    public Menu()
-    {
-        menuList = new ArrayList<FoodData>();
+    public Menu(String id, String name, Integer img, String restId) {
+        this.id = id;
+        this.name = name;
+        this.img = img;
+        this.restId = restId;
     }
 
-    public void addItems(FoodData items)
-    {
-        menuList.add(items);
+    public String getId() {
+        return id;
     }
 
-    public ArrayList<FoodData> getMenuList()
-    {
-        return menuList;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public FoodData searchByName(String name)
-    {
-      it = menuList.iterator();
-      while (it.hasNext())
-      {
-          FoodData result = it.next();
-          if (result.getItemName().equals(name))
-          {
-              return result;
-          }
-      }
-      return null;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getImg() {
+        return img;
+    }
+
+    public void setImg(Integer img) {
+        this.img = img;
+    }
+
+    public String getRestId() {
+        return restId;
     }
 }

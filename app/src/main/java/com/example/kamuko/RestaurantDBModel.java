@@ -45,4 +45,36 @@ public class RestaurantDBModel {
     {
         db.delete(RestaurantDBSchema.restaurantTable.NAME, null, null);
     }
+
+    public void addMenu(Menu menu)
+    {
+        ContentValues cv = new ContentValues();
+        cv.put(RestaurantDBSchema.menuTable.Cols.ID, menu.getId());
+        cv.put(RestaurantDBSchema.menuTable.Cols.NAME, menu.getName());
+        cv.put(RestaurantDBSchema.menuTable.Cols.IMAGE, menu.getImg());
+        cv.put(RestaurantDBSchema.menuTable.Cols.RESTID, menu.getRestId());
+        db.insert(RestaurantDBSchema.menuTable.NAME, null, cv);
+    }
+
+    public ArrayList<Menu> getAllMenu()
+    {
+        ArrayList<Menu> menuArrayList = new ArrayList<>();
+        Cursor cursor = db.query(RestaurantDBSchema.menuTable.NAME, null,null,null,null,null,null);
+        RestaurantDBCursor restaurantDBCursor = new RestaurantDBCursor(cursor);
+
+        try
+        {
+            restaurantDBCursor.moveToFirst();
+            while (!restaurantDBCursor.isAfterLast())
+            {
+                menuArrayList.add(restaurantDBCursor.getMenu());
+                restaurantDBCursor.moveToNext();
+            }
+        }
+        finally {
+            cursor.close();
+        }
+
+        return menuArrayList;
+    }
 }

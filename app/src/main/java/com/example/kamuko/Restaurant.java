@@ -10,7 +10,7 @@ public class Restaurant {
     String id;
     String name;
     Integer img;
-    Menu menu = new Menu();
+    //Menu menu = new Menu();
 
     public Restaurant(String id, String name, Integer img)
     {
@@ -39,7 +39,7 @@ public class Restaurant {
 
     public void setImg(Integer img) { this.img = img; }
 
-    public void setMenuItems(String itemName, String des, Integer imgRef)
+    /*public void setMenuItems(String itemName, String des, Integer imgRef)
     {
         FoodData fd = new FoodData(itemName , des, imgRef);
         menu.addItems(fd);
@@ -48,5 +48,5 @@ public class Restaurant {
     public Menu getMenu()
     {
         return menu;
-    }
+    }*/
 }
