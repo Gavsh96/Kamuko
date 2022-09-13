@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         rDBm.load(getApplicationContext());
 
         rDBm.deleteAllRestaurants();
+        rDBm.deleteAllMenu();
         CreateRestaurants(rDBm);
         /*FragmentManager frag = getSupportFragmentManager();
         SpecialMenuFragment specialMenuFragment = (SpecialMenuFragment) frag.findFragmentById(R.id.frameLayout);

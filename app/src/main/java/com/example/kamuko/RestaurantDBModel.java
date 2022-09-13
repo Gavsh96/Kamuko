@@ -77,4 +77,9 @@ public class RestaurantDBModel {
 
         return menuArrayList;
     }
+
+    public void deleteAllMenu()
+    {
+        db.delete(RestaurantDBSchema.menuTable.NAME, null, null);
+    }
 }

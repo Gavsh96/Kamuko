@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class MenuAdapter extends RecyclerView.Adapter<MenuVH> {
     RestaurantDBModel rDBm;
     ArrayList<Menu> allMenuList;
-    ArrayList<Menu> menuList;
+    ArrayList<Menu> menuList = new ArrayList<>();
 
     public MenuAdapter(RestaurantDBModel rDBm, String id)
     {
@@ -21,7 +21,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuVH> {
 
         for (Menu menu: allMenuList)
         {
-            if(menu.getId().equals(id))
+            if(menu.getRestId().equals(id))
             {
                 menuList.add(menu);
             }
