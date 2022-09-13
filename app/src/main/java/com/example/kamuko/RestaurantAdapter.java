@@ -10,13 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantVH> {
-
+    RestaurantInterface restaurantInterface;
     RestaurantDBModel rDBm;
     ArrayList<Restaurant> restaurants;
 
-    public RestaurantAdapter(RestaurantDBModel rDBm)
+    public RestaurantAdapter(RestaurantDBModel rDBm, RestaurantInterface restaurantInterface)
     {
         this.rDBm = rDBm;
+        this.restaurantInterface = restaurantInterface;
         restaurants = rDBm.getAllRestaurant();
     }
 
@@ -25,7 +26,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantVH> {
     public RestaurantVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.special_menu, parent, false);
-        RestaurantVH viewHolder = new RestaurantVH(view);
+        RestaurantVH viewHolder = new RestaurantVH(view, restaurantInterface);
         return viewHolder;
     }
 
