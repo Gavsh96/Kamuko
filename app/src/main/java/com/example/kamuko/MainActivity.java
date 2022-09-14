@@ -35,18 +35,6 @@ public class MainActivity extends AppCompatActivity {
         restImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", R.drawable.restaurant);
-                Restaurant r2 = new Restaurant("1235", "Akbho Bell", R.drawable.restaurant);
-                Restaurant r3 = new Restaurant("1236", "Gav's Pizza", R.drawable.restaurant);
-                Restaurant r4 = new Restaurant("1237", "Hindiye kade", R.drawable.restaurant);
-                Restaurant r5 = new Restaurant("1238", "Beepan plaintea", R.drawable.restaurant);
-
-                ArrayList<Restaurant> list = new ArrayList<>();
-                list.add(r1);
-                list.add(r2);
-                list.add(r3);
-                list.add(r4);
-                list.add(r5);*/
 
                 Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
                 startActivity(intent);
@@ -74,18 +62,18 @@ public class MainActivity extends AppCompatActivity {
         Menu r3m5 = new Menu("05", "Gindara Cake", R.drawable.profile, r3.getId());
 
         Restaurant r4 = new Restaurant("1237", "Matara Bath kade", R.drawable.matarabathkade);
-        Menu r4m1 = new Menu("01", "Chicken Rice & Curry", R.drawable.profile, r4.getId());
-        Menu r4m2 = new Menu("02", "Beef Rice & Curry", R.drawable.profile, r4.getId());
-        Menu r4m3 = new Menu("03", "Pork Rice & Curry", R.drawable.profile, r4.getId());
-        Menu r4m4 = new Menu("04", "Pol Rotti & Chicken Curry", R.drawable.profile, r4.getId());
-        Menu r4m5 = new Menu("05", "Pol Rotti & Beef Curry", R.drawable.profile, r4.getId());
+        Menu r4m1 = new Menu("01", "Chicken Rice & Curry", R.drawable.matarachickenrice, r4.getId());
+        Menu r4m2 = new Menu("02", "Chicken Fried Rice", R.drawable.matarafried, r4.getId());
+        Menu r4m3 = new Menu("03", "Pork Noodles", R.drawable.mataranoodles, r4.getId());
+        Menu r4m4 = new Menu("04", "Pol Rotti & Chicken Curry", R.drawable.matararotti, r4.getId());
+        Menu r4m5 = new Menu("05", "Egg Hoppers", R.drawable.matarahopper, r4.getId());
 
         Restaurant r5 = new Restaurant("1238", "KFC", R.drawable.kfcimage);
-        Menu r5m1 = new Menu("01", "Fries", R.drawable.profile, r5.getId());
-        Menu r5m2 = new Menu("02", "Chicken Burger", R.drawable.profile, r5.getId());
-        Menu r5m3 = new Menu("03", "Beef Burger", R.drawable.profile, r5.getId());
-        Menu r5m4 = new Menu("04", "Pork Burger", R.drawable.profile, r5.getId());
-        Menu r5m5 = new Menu("05", "Mutton Burger", R.drawable.profile, r5.getId());
+        Menu r5m1 = new Menu("01", "Fries", R.drawable.kfcfries, r5.getId());
+        Menu r5m2 = new Menu("02", "Chicken Burger", R.drawable.kfczinger, r5.getId());
+        Menu r5m3 = new Menu("03", "Beef Burger", R.drawable.kfcbeef, r5.getId());
+        Menu r5m4 = new Menu("04", "Chicken Sawan", R.drawable.kfcsawan, r5.getId());
+        Menu r5m5 = new Menu("05", "Chicken Bucket", R.drawable.kfcbucket, r5.getId());
 
         rDBm.addRestaurant(r1);
         rDBm.addRestaurant(r2);
