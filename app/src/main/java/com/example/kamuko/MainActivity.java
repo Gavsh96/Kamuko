@@ -88,12 +88,21 @@ public class MainActivity extends AppCompatActivity {
         Menu r6m5 = new Menu("29", "Sukiyaki", R.drawable.ichirakusukiyaki, r6.getId());
         Menu r6m6 = new Menu("30", "Kawaii Mochi", R.drawable.ichirakumochi, r6.getId());
 
+        Restaurant r7 = new Restaurant("1240", "Seoul Cafe", R.drawable.seoulcafe);
+        Menu r7m1 = new Menu("31", "Bibimbap", R.drawable.seoulbibimbap, r7.getId());
+        Menu r7m2 = new Menu("32", "Jjajangmyeon", R.drawable.seouljjajangmyeon, r7.getId());
+        Menu r7m3 = new Menu("33", "Kongguksu", R.drawable.seoulkongguksu, r7.getId());
+        Menu r7m4 = new Menu("34", "Gimbap", R.drawable.seoulgimbap, r7.getId());
+        Menu r7m5 = new Menu("35", "Tteokbokki", R.drawable.seoultteokbokki, r7.getId());
+        Menu r7m6 = new Menu("36", "Jjigae", R.drawable.seouljjigae, r7.getId());
+
         rDBm.addRestaurant(r1);
         rDBm.addRestaurant(r2);
         rDBm.addRestaurant(r3);
         rDBm.addRestaurant(r4);
         rDBm.addRestaurant(r5);
         rDBm.addRestaurant(r6);
+        rDBm.addRestaurant(r7);
 
         rDBm.addMenu(r2m1);
         rDBm.addMenu(r2m2);
@@ -129,5 +138,12 @@ public class MainActivity extends AppCompatActivity {
         rDBm.addMenu(r6m4);
         rDBm.addMenu(r6m5);
         rDBm.addMenu(r6m6);
+
+        rDBm.addMenu(r7m1);
+        rDBm.addMenu(r7m2);
+        rDBm.addMenu(r7m3);
+        rDBm.addMenu(r7m4);
+        rDBm.addMenu(r7m5);
+        rDBm.addMenu(r7m6);
     }
 }
