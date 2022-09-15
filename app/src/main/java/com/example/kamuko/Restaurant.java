@@ -10,7 +10,6 @@ public class Restaurant {
     String id;
     String name;
     Integer img;
-    //Menu menu = new Menu();
 
     public Restaurant(String id, String name, Integer img)
     {

@@ -18,6 +18,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("create table "+ DBSchema.restaurantTable.NAME+"("+ DBSchema.restaurantTable.Cols.ID+" Text, "+ DBSchema.restaurantTable.Cols.NAME+" Text, "+ DBSchema.restaurantTable.Cols.IMAGE+ " Text);");
         sqLiteDatabase.execSQL("create table "+ DBSchema.menuTable.NAME+"("+ DBSchema.menuTable.Cols.ID+" Text, "+ DBSchema.menuTable.Cols.NAME+" Text, "+ DBSchema.menuTable.Cols.IMAGE+" Text, "+ DBSchema.menuTable.Cols.RESTID+ " Text);");
+        sqLiteDatabase.execSQL("create table "+ DBSchema.userTable.NAME+"("+ DBSchema.userTable.Cols.ID+" Text, "+ DBSchema.userTable.Cols.NAME+" Text, "+ DBSchema.userTable.Cols.PASSWORD+" Text);");
+        sqLiteDatabase.execSQL("create table "+ DBSchema.orderHistoryTable.NAME+"("+ DBSchema.orderHistoryTable.Cols.ID+" Text, "+ DBSchema.orderHistoryTable.Cols.ITEMS+" Text, "+ DBSchema.orderHistoryTable.Cols.DATE+" Text, "+ DBSchema.orderHistoryTable.Cols.TIME+ " Text, "+ DBSchema.orderHistoryTable.Cols.RESTNAME+" Text, "+ DBSchema.orderHistoryTable.Cols.COST+" Text);");
+        sqLiteDatabase.execSQL("create table "+ DBSchema.loggedInTable.NAME+"("+ DBSchema.loggedInTable.Cols.ID+" Text, "+ DBSchema.loggedInTable.Cols.NAME+" Text);");
+
     }
 
     @Override

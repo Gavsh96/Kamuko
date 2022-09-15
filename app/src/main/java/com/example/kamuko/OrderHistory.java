@@ -33,9 +33,13 @@ public class OrderHistory {
         return items;
     }
 
-    public void setItems(String date) {
-        this.date = date;
+    public void setItems(String items) {
+        this.items = items;
     }
+
+    public String getDate() { return date; }
+
+    public void setDate(String date) { this.date = date; }
 
     public String getTime() { return time; }
 

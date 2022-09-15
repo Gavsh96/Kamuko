@@ -19,4 +19,33 @@ public class DBSchema {
             public static final String RESTID = "restId";
         }
     }
+
+    public static class userTable{
+        public static final String NAME = "user";
+        public static class Cols{
+            public static final String ID = "userId";
+            public static final String NAME = "name";
+            public static final String PASSWORD = "password";
+        }
+    }
+
+    public static class orderHistoryTable{
+        public static final String NAME = "oHistory";
+        public static class Cols{
+            public static final String ID = "userId";
+            public static final String ITEMS = "items";
+            public static final String DATE = "date";
+            public static final String TIME = "time";
+            public static final String RESTNAME = "restaurantName";
+            public static final String COST = "cost";
+        }
+    }
+
+    public static class loggedInTable{
+        public static final String NAME = "loggedIn";
+        public static class Cols{
+            public static final String ID = "userId";
+            public static final String NAME = "name";
+        }
+    }
 }
