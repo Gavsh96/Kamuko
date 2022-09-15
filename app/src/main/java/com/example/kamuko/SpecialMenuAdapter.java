@@ -7,18 +7,17 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
 public class SpecialMenuAdapter extends RecyclerView.Adapter<SpecialMenuVH> {
 
-    RestaurantDBModel dbModel;
+    DBModel dbModel;
     ArrayList<Menu> menuList = new ArrayList<>();
     Random rand = new Random();
 
-    public SpecialMenuAdapter(RestaurantDBModel dbModel)
+    public SpecialMenuAdapter(DBModel dbModel)
     {
         this.dbModel = dbModel;
         ArrayList<Menu> allMenu = dbModel.getAllMenu();

@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuVH> {
-    RestaurantDBModel rDBm;
+    DBModel rDBm;
     ArrayList<Menu> allMenuList;
     ArrayList<Menu> menuList = new ArrayList<>();
 
-    public MenuAdapter(RestaurantDBModel rDBm, String id)
+    public MenuAdapter(DBModel rDBm, String id)
     {
         this.rDBm = rDBm;
         allMenuList = rDBm.getAllMenu();

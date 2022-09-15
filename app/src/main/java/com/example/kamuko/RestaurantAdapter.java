@@ -11,10 +11,10 @@ import java.util.ArrayList;
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantVH> {
     RestaurantInterface restaurantInterface;
-    RestaurantDBModel rDBm;
+    DBModel rDBm;
     ArrayList<Restaurant> restaurants;
 
-    public RestaurantAdapter(RestaurantDBModel rDBm, RestaurantInterface restaurantInterface)
+    public RestaurantAdapter(DBModel rDBm, RestaurantInterface restaurantInterface)
     {
         this.rDBm = rDBm;
         this.restaurantInterface = restaurantInterface;

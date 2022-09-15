@@ -2,16 +2,11 @@ package com.example.kamuko;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageView;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ImageView restImage = findViewById(R.id.restImage);
 
-        RestaurantDBModel rDBm = new RestaurantDBModel();
+        DBModel rDBm = new DBModel();
         rDBm.load(getApplicationContext());
 
         rDBm.deleteAllRestaurants();
@@ -43,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void CreateRestaurants(RestaurantDBModel rDBm)
+    private void CreateRestaurants(DBModel rDBm)
     {
         //Creating Restaurants
         Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", R.drawable.restaurant);

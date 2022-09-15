@@ -1,6 +1,6 @@
 package com.example.kamuko;
 
-public class RestaurantDBSchema {
+public class DBSchema {
     public static class restaurantTable{
         public static final String NAME = "restaurants";
         public static class Cols{

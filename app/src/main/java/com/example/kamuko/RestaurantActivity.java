@@ -18,7 +18,7 @@ public class RestaurantActivity extends AppCompatActivity implements RestaurantI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
 
-        RestaurantDBModel rDBm = new RestaurantDBModel();
+        DBModel rDBm = new DBModel();
         rDBm.load(getApplicationContext());
         
         list = rDBm.getAllRestaurant();

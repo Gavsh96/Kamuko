@@ -17,7 +17,7 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");
 
-        RestaurantDBModel rDBm = new RestaurantDBModel();
+        DBModel rDBm = new DBModel();
         rDBm.load(getApplicationContext());
 
         RecyclerView rv = findViewById(R.id.MenuRecyclerView);
