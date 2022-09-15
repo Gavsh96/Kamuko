@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class SpecialMenuAdapter extends RecyclerView.Adapter<SpecialMenuVH> {
@@ -20,20 +22,17 @@ public class SpecialMenuAdapter extends RecyclerView.Adapter<SpecialMenuVH> {
     {
         this.dbModel = dbModel;
         ArrayList<Menu> allMenu = dbModel.getAllMenu();
+        ArrayList<Integer> list = new ArrayList<>();
         int temp;
 
-        // There is a chance to contain duplicate values.
-        // They should be removed later
-        for(int i = 0; i < 8; i++)
+        for(int i = 13; i < 30; i++)
         {
-            // This is done temporarily until all restaurants and their menus are generated.
-            temp = rand.nextInt(30-13) + 13;
-            for (Menu menu: allMenu) {
-                if(menu.getId().equals(String.valueOf(temp)))
-                {
-                    menuList.add(menu);
-                }
-            }
+            list.add(i);
+        }
+        Collections.shuffle(list);
+        for (int i = 0; i < 7; i++)
+        {
+            menuList.add(allMenu.get(list.get(i)));
         }
     }
 
