@@ -39,14 +39,4 @@ public class Restaurant {
 
     public void setImg(Integer img) { this.img = img; }
 
-    /*public void setMenuItems(String itemName, String des, Integer imgRef)
-    {
-        FoodData fd = new FoodData(itemName , des, imgRef);
-        menu.addItems(fd);
-    }
-
-    public Menu getMenu()
-    {
-        return menu;
-    }*/
 }
