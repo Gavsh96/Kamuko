@@ -21,7 +21,9 @@ public class DBCursor extends CursorWrapper {
         String name = getString(getColumnIndex(DBSchema.menuTable.Cols.NAME));
         Integer img = getInt(getColumnIndex(DBSchema.menuTable.Cols.IMAGE));
         String restId = getString(getColumnIndex(DBSchema.menuTable.Cols.RESTID));
-        return new Menu(id, name, img, restId);
+        double price = getDouble(getColumnIndex(DBSchema.menuTable.Cols.PRICE));
+        String description = getString(getColumnIndex(DBSchema.menuTable.Cols.DESCRIPTION));
+        return new Menu(id, name, img, restId, price, description);
     }
 
     public User getUser()

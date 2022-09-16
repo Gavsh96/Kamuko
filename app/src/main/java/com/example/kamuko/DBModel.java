@@ -53,6 +53,8 @@ public class DBModel {
         cv.put(DBSchema.menuTable.Cols.NAME, menu.getName());
         cv.put(DBSchema.menuTable.Cols.IMAGE, menu.getImg());
         cv.put(DBSchema.menuTable.Cols.RESTID, menu.getRestId());
+        cv.put(DBSchema.menuTable.Cols.PRICE, menu.getPrice());
+        cv.put(DBSchema.menuTable.Cols.DESCRIPTION, menu.getDescription());
         db.insert(DBSchema.menuTable.NAME, null, cv);
     }
 

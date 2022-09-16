@@ -8,12 +8,16 @@ public class Menu {
     String name;
     Integer img;
     String restId;
+    double price;
+    String description;
 
-    public Menu(String id, String name, Integer img, String restId) {
+    public Menu(String id, String name, Integer img, String restId, double price, String description) {
         this.id = id;
         this.name = name;
         this.img = img;
         this.restId = restId;
+        this.price = price;
+        this.description = description;
     }
 
     public String getId() {
@@ -42,5 +46,21 @@ public class Menu {
 
     public String getRestId() {
         return restId;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

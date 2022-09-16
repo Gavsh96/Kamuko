@@ -44,52 +44,52 @@ public class MainActivity extends AppCompatActivity {
         Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", R.drawable.restaurant);
 
         Restaurant r2 = new Restaurant("1235", "Posh By Akbho", R.drawable.restaurant);
-        Menu r2m1 = new Menu("1", "Posh Fries", R.drawable.profile, r2.getId());
-        Menu r2m2 = new Menu("2", "Chicken Posh Burger", R.drawable.profile, r2.getId());
-        Menu r2m3 = new Menu("3", "Spicy Beef Burger", R.drawable.profile, r2.getId());
-        Menu r2m4 = new Menu("4", "Nai Miris Pork Posh Burger", R.drawable.profile, r2.getId());
-        Menu r2m5 = new Menu("5", "Gon Wada Special", R.drawable.profile, r2.getId());
-        Menu r2m6 = new Menu("6", "Gon Wada Ultra", R.drawable.profile, r2.getId());
+        Menu r2m1 = new Menu("1", "Posh Fries", R.drawable.profile, r2.getId(), 100.00, "Test");
+        Menu r2m2 = new Menu("2", "Chicken Posh Burger", R.drawable.profile, r2.getId(), 100.00, "Test");
+        Menu r2m3 = new Menu("3", "Spicy Beef Burger", R.drawable.profile, r2.getId(), 100.00, "Test");
+        Menu r2m4 = new Menu("4", "Nai Miris Pork Posh Burger", R.drawable.profile, r2.getId(), 100.00, "Test");
+        Menu r2m5 = new Menu("5", "Gon Wada Special", R.drawable.profile, r2.getId(), 100.00, "Test");
+        Menu r2m6 = new Menu("6", "Gon Wada Ultra", R.drawable.profile, r2.getId(), 100.00, "Test");
 
         Restaurant r3 = new Restaurant("1236", "Gav's Pizza", R.drawable.restaurant);
-        Menu r3m1 = new Menu("7", "Cheese Pizza", R.drawable.profile, r3.getId());
-        Menu r3m2 = new Menu("8", "Pattah Spicy Beef Pizza", R.drawable.profile, r3.getId());
-        Menu r3m3 = new Menu("9", "Lankan Pizza", R.drawable.profile, r3.getId());
-        Menu r3m4 = new Menu("10", "Nai Miris Pizza", R.drawable.profile, r3.getId());
-        Menu r3m5 = new Menu("11", "Gindara Cake", R.drawable.profile, r3.getId());
-        Menu r3m6 = new Menu("12", "Seethala Cake", R.drawable.profile, r3.getId());
+        Menu r3m1 = new Menu("7", "Cheese Pizza", R.drawable.profile, r3.getId(), 100.00, "Test");
+        Menu r3m2 = new Menu("8", "Pattah Spicy Beef Pizza", R.drawable.profile, r3.getId(), 100.00, "Test");
+        Menu r3m3 = new Menu("9", "Lankan Pizza", R.drawable.profile, r3.getId(), 100.00, "Test");
+        Menu r3m4 = new Menu("10", "Nai Miris Pizza", R.drawable.profile, r3.getId(), 100.00, "Test");
+        Menu r3m5 = new Menu("11", "Gindara Cake", R.drawable.profile, r3.getId(), 100.00, "Test");
+        Menu r3m6 = new Menu("12", "Seethala Cake", R.drawable.profile, r3.getId(), 100.00, "Test");
 
         Restaurant r4 = new Restaurant("1237", "Matara Bath kade", R.drawable.matarabathkade);
-        Menu r4m1 = new Menu("13", "Chicken Rice & Curry", R.drawable.matarachickenrice, r4.getId());
-        Menu r4m2 = new Menu("14", "Chicken Fried Rice", R.drawable.matarafried, r4.getId());
-        Menu r4m3 = new Menu("15", "Pork Noodles", R.drawable.mataranoodles, r4.getId());
-        Menu r4m4 = new Menu("16", "Pol Rotti & Chicken Curry", R.drawable.matararotti, r4.getId());
-        Menu r4m5 = new Menu("17", "Egg Hoppers", R.drawable.matarahopper, r4.getId());
-        Menu r4m6 = new Menu("18", "String Hoppers", R.drawable.matarastring, r4.getId());
+        Menu r4m1 = new Menu("13", "Chicken Rice & Curry", R.drawable.matarachickenrice, r4.getId(), 100.00, "Test");
+        Menu r4m2 = new Menu("14", "Chicken Fried Rice", R.drawable.matarafried, r4.getId(), 100.00, "Test");
+        Menu r4m3 = new Menu("15", "Pork Noodles", R.drawable.mataranoodles, r4.getId(), 100.00, "Test");
+        Menu r4m4 = new Menu("16", "Pol Rotti & Chicken Curry", R.drawable.matararotti, r4.getId(), 100.00, "Test");
+        Menu r4m5 = new Menu("17", "Egg Hoppers", R.drawable.matarahopper, r4.getId(), 100.00, "Test");
+        Menu r4m6 = new Menu("18", "String Hoppers", R.drawable.matarastring, r4.getId(), 100.00, "Test");
 
         Restaurant r5 = new Restaurant("1238", "KFC", R.drawable.kfcimage);
-        Menu r5m1 = new Menu("19", "Fries", R.drawable.kfcfries, r5.getId());
-        Menu r5m2 = new Menu("20", "Chicken Burger", R.drawable.kfczinger, r5.getId());
-        Menu r5m3 = new Menu("21", "Beef Burger", R.drawable.kfcbeef, r5.getId());
-        Menu r5m4 = new Menu("22", "Chicken Sawan", R.drawable.kfcsawan, r5.getId());
-        Menu r5m5 = new Menu("23", "Chicken Bucket", R.drawable.kfcbucket, r5.getId());
-        Menu r5m6 = new Menu("24", "KFC Cola Special", R.drawable.kfccola, r5.getId());
+        Menu r5m1 = new Menu("19", "Fries", R.drawable.kfcfries, r5.getId(), 100.00, "Test");
+        Menu r5m2 = new Menu("20", "Chicken Burger", R.drawable.kfczinger, r5.getId(), 100.00, "Test");
+        Menu r5m3 = new Menu("21", "Beef Burger", R.drawable.kfcbeef, r5.getId(), 100.00, "Test");
+        Menu r5m4 = new Menu("22", "Chicken Sawan", R.drawable.kfcsawan, r5.getId(), 100.00, "Test");
+        Menu r5m5 = new Menu("23", "Chicken Bucket", R.drawable.kfcbucket, r5.getId(), 100.00, "Test");
+        Menu r5m6 = new Menu("24", "KFC Cola Special", R.drawable.kfccola, r5.getId(), 100.00, "Test");
 
         Restaurant r6 = new Restaurant("1239", "Ichiraku Ramen", R.drawable.ichiraku);
-        Menu r6m1 = new Menu("25", "Ramen", R.drawable.ichirakuramen, r6.getId());
-        Menu r6m2 = new Menu("26", "Sushi", R.drawable.ichirakusushi, r6.getId());
-        Menu r6m3 = new Menu("27", "Miso Soup", R.drawable.ichirakumiso, r6.getId());
-        Menu r6m4 = new Menu("28", "Omu Raisu", R.drawable.ichirakurisu, r6.getId());
-        Menu r6m5 = new Menu("29", "Sukiyaki", R.drawable.ichirakusukiyaki, r6.getId());
-        Menu r6m6 = new Menu("30", "Kawaii Mochi", R.drawable.ichirakumochi, r6.getId());
+        Menu r6m1 = new Menu("25", "Ramen", R.drawable.ichirakuramen, r6.getId(), 100.00, "Test");
+        Menu r6m2 = new Menu("26", "Sushi", R.drawable.ichirakusushi, r6.getId(), 100.00, "Test");
+        Menu r6m3 = new Menu("27", "Miso Soup", R.drawable.ichirakumiso, r6.getId(), 100.00, "Test");
+        Menu r6m4 = new Menu("28", "Omu Raisu", R.drawable.ichirakurisu, r6.getId(), 100.00, "Test");
+        Menu r6m5 = new Menu("29", "Sukiyaki", R.drawable.ichirakusukiyaki, r6.getId(), 100.00, "Test");
+        Menu r6m6 = new Menu("30", "Kawaii Mochi", R.drawable.ichirakumochi, r6.getId(), 100.00, "Test");
 
         Restaurant r7 = new Restaurant("1240", "Seoul Cafe", R.drawable.seoulcafe);
-        Menu r7m1 = new Menu("31", "Bibimbap", R.drawable.seoulbibimbap, r7.getId());
-        Menu r7m2 = new Menu("32", "Jjajangmyeon", R.drawable.seouljjajangmyeon, r7.getId());
-        Menu r7m3 = new Menu("33", "Kongguksu", R.drawable.seoulkongguksu, r7.getId());
-        Menu r7m4 = new Menu("34", "Gimbap", R.drawable.seoulgimbap, r7.getId());
-        Menu r7m5 = new Menu("35", "Tteokbokki", R.drawable.seoultteokbokki, r7.getId());
-        Menu r7m6 = new Menu("36", "Jjigae", R.drawable.seouljjigae, r7.getId());
+        Menu r7m1 = new Menu("31", "Bibimbap", R.drawable.seoulbibimbap, r7.getId(), 100.00, "Test");
+        Menu r7m2 = new Menu("32", "Jjajangmyeon", R.drawable.seouljjajangmyeon, r7.getId(), 100.00, "Test");
+        Menu r7m3 = new Menu("33", "Kongguksu", R.drawable.seoulkongguksu, r7.getId(), 100.00, "Test");
+        Menu r7m4 = new Menu("34", "Gimbap", R.drawable.seoulgimbap, r7.getId(), 100.00, "Test");
+        Menu r7m5 = new Menu("35", "Tteokbokki", R.drawable.seoultteokbokki, r7.getId(), 100.00, "Test");
+        Menu r7m6 = new Menu("36", "Jjigae", R.drawable.seouljjigae, r7.getId(), 100.00, "Test");
 
         rDBm.addRestaurant(r1);
         rDBm.addRestaurant(r2);
