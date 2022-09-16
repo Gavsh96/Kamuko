@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         rDBm.deleteAllRestaurants();
         rDBm.deleteAllMenu();
+        rDBm.removeAllItems();
         CreateRestaurants(rDBm);
 
         FragmentManager frag = getSupportFragmentManager();

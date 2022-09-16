@@ -51,4 +51,11 @@ public class DBCursor extends CursorWrapper {
         String name = getString(getColumnIndex(DBSchema.loggedInTable.Cols.NAME));
         return  new LoggedIn(userId, name);
     }
+
+    public Cart getCartItem()
+    {
+        String id = getString(getColumnIndex(DBSchema.cartTable.Cols.ID));
+        int count = getInt(getColumnIndex(DBSchema.cartTable.Cols.COUNT));
+        return new Cart(id, count);
+    }
 }

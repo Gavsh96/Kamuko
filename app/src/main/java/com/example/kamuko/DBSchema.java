@@ -50,4 +50,12 @@ public class DBSchema {
             public static final String NAME = "name";
         }
     }
+
+    public static class cartTable{
+        public static final String NAME = "cart";
+        public static class Cols{
+            public static final String ID = "id";
+            public static final String COUNT = "count";
+        }
+    }
 }
