@@ -28,6 +28,8 @@ public class MenuDescActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_desc);
 
+        // This activity is kept only to refer code and is not used anywhere in the application.
+
         img = findViewById(R.id.menuImage);
         text = findViewById(R.id.menuText);
         price = findViewById(R.id.price);

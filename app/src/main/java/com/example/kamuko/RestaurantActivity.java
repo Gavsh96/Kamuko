@@ -1,17 +1,11 @@
 package com.example.kamuko;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentManager;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import java.util.ArrayList;
-
-public class RestaurantActivity extends AppCompatActivity implements RestaurantInterface{
-
-    ArrayList<Restaurant> list;
+public class RestaurantActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,18 +14,10 @@ public class RestaurantActivity extends AppCompatActivity implements RestaurantI
 
         DBModel rDBm = new DBModel();
         rDBm.load(getApplicationContext());
-        
-        list = rDBm.getAllRestaurant();
-        RecyclerView rv = findViewById(R.id.RestaurantRecyclerView);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        RestaurantAdapter adapter = new RestaurantAdapter(rDBm, this);
-        rv.setAdapter(adapter);
-    }
 
-    @Override
-    public void onItemClick(int position) {
-        Intent intent = new Intent(this, MenuActivity.class);
-        intent.putExtra("id", list.get(position).getId());
-        startActivity(intent);
+        FragmentManager frag = getSupportFragmentManager();
+        RestaurantFragment restaurantFragment = (RestaurantFragment) frag.findFragmentById(R.id.fragment);
+        restaurantFragment = new RestaurantFragment(rDBm);
+        frag.beginTransaction().add(R.id.fragment, restaurantFragment).commit();
     }
 }
