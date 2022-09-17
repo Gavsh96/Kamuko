@@ -59,12 +59,14 @@ public class SignUpFrag extends Fragment {
         SignOut = view.findViewById(R.id.signoutBt);
         notification = view.findViewById(R.id.notification);
 
-        SignOut.setEnabled(!loggedIn.isEmpty());
+        SignOut.setEnabled(!loggedIn.isEmpty() && loggedIn.size() < 2);
         userIdIn.addTextChangedListener(textDetector);
         passwordIn.addTextChangedListener(textDetector);
 
         userIdText.setText("User ID");
         passwordText.setText("Password");
+
+
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,14 +89,8 @@ public class SignUpFrag extends Fragment {
                     notification.setText("This user is not registered !");
                 }
 
-                if(!loggedIn.isEmpty() && loggedIn.size() < 2)
-                {
-                    notification.setText("wade hari !");
-                }
             }
         });
-
-
 
         return view;
 
