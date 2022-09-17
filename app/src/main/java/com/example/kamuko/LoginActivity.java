@@ -18,9 +18,9 @@ public class LoginActivity extends AppCompatActivity {
         rDBm.load(getApplicationContext());
 
         FragmentManager frag = getSupportFragmentManager();
-        SignUpFrag signUpFrag = (SignUpFrag) frag.findFragmentById(R.id.LAfragment1);
-        signUpFrag  = new SignUpFrag ();
-        frag.beginTransaction().add(R.id.LAfragment1, signUpFrag ).commit();
+        LoginFrag loginFrag = (LoginFrag) frag.findFragmentById(R.id.LAfragment1);
+        loginFrag = new LoginFrag();
+        frag.beginTransaction().add(R.id.LAfragment1, loginFrag).commit();
 
     }
 }
