@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         rDBm.deleteAllRestaurants();
         rDBm.deleteAllMenu();
         rDBm.removeAllItems();
+        rDBm.deleteAllUser();
+        rDBm.deleteAllLoggedIn();
         CreateRestaurants(rDBm);
 
         FragmentManager frag = getSupportFragmentManager();
@@ -163,5 +165,8 @@ public class MainActivity extends AppCompatActivity {
         rDBm.addMenu(r7m4);
         rDBm.addMenu(r7m5);
         rDBm.addMenu(r7m6);
+
+        User u1 = new User("1234ga", "ppsmols", "123456");
+        rDBm.addUser(u1);
     }
 }
