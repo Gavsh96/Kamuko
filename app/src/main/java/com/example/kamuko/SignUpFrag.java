@@ -67,7 +67,6 @@ public class SignUpFrag extends Fragment {
         passwordText.setText("Password");
 
 
-
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,13 +81,31 @@ public class SignUpFrag extends Fragment {
                     rDBm.addLoggedIn(lI);
                     String name = user.getName();
                     notification.setText(name+" logged in !");
-                    loggedIn = rDBm.getAllLoggedIn();
                 }
                 else
                 {
                     notification.setText("This user is not registered !");
                 }
 
+            }
+
+        });
+
+        SignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(!loggedIn.isEmpty() && loggedIn.size() < 2)
+                {
+                    String name = loggedIn.get(0).getName();
+                    rDBm.deleteAllLoggedIn();
+                    loggedIn = rDBm.getAllLoggedIn();
+                    notification.setText("Sign out from " +name+ " complete");
+                }
+                else
+                {
+                    notification.setText("You are not logged in to sign out");
+                }
             }
         });
 
