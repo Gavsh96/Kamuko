@@ -89,24 +89,30 @@ public class MainActivity extends AppCompatActivity {
         Menu r6m1 = new Menu("25", "Ramen", R.drawable.ichirakuramen, r6.getId(), 2500.00, "Japanese noodles " +
                 "made with the finest wheat flour and alkaline water to add elasticity. Served in a broth with a slice " +
                 "of pork and bamboo shoots");
-        Menu r6m2 = new Menu("26", "Sushi", R.drawable.ichirakusushi, r6.getId(), 100.00, "Prepared with " +
+        Menu r6m2 = new Menu("26", "Sushi", R.drawable.ichirakusushi, r6.getId(), 5000.00, "Prepared with " +
                 "the finest vinegared rice accompanied by raw seafood and vegetables");
-        Menu r6m3 = new Menu("27", "Miso Soup", R.drawable.ichirakumiso, r6.getId(), 100.00, "Traditional " +
+        Menu r6m3 = new Menu("27", "Miso Soup", R.drawable.ichirakumiso, r6.getId(), 1250.00, "Traditional " +
                 "Japanese soup consisting of dashi stock accompanied by tofu and vegetables");
-        Menu r6m4 = new Menu("28", "Omu Raisu", R.drawable.ichirakurisu, r6.getId(), 100.00, "An Omelette " +
+        Menu r6m4 = new Menu("28", "Omu Raisu", R.drawable.ichirakurisu, r6.getId(), 2500.00, "An Omelette " +
                 "made with fried rice and thin, fried scrambled eggs topped off with ketchup");
-        Menu r6m5 = new Menu("29", "Sukiyaki", R.drawable.ichirakusukiyaki, r6.getId(), 100.00, "A Japanese " +
+        Menu r6m5 = new Menu("29", "Sukiyaki", R.drawable.ichirakusukiyaki, r6.getId(), 4000.00, "A Japanese " +
                 "hot pot consisting of sliced beef which is slowly cooked alongside vegetables in a mixture of soy sauce and sugar");
-        Menu r6m6 = new Menu("30", "Kawaii Mochi", R.drawable.ichirakumochi, r6.getId(), 100.00, "A Japanese " +
+        Menu r6m6 = new Menu("30", "Kawaii Mochi", R.drawable.ichirakumochi, r6.getId(), 1000.00, "A Japanese " +
                 "rice cake made of mochigome, a short grained japonica glutinous rice.");
 
-        Restaurant r7 = new Restaurant("1240", "Seoul Cafe", R.drawable.seoulcafe);
-        Menu r7m1 = new Menu("31", "Bibimbap", R.drawable.seoulbibimbap, r7.getId(), 100.00, "Test");
-        Menu r7m2 = new Menu("32", "Jjajangmyeon", R.drawable.seouljjajangmyeon, r7.getId(), 100.00, "Test");
-        Menu r7m3 = new Menu("33", "Kongguksu", R.drawable.seoulkongguksu, r7.getId(), 100.00, "Test");
-        Menu r7m4 = new Menu("34", "Gimbap", R.drawable.seoulgimbap, r7.getId(), 100.00, "Test");
-        Menu r7m5 = new Menu("35", "Tteokbokki", R.drawable.seoultteokbokki, r7.getId(), 100.00, "Test");
-        Menu r7m6 = new Menu("36", "Jjigae", R.drawable.seouljjigae, r7.getId(), 100.00, "Test");
+        Restaurant r7 = new Restaurant("1240", "Danbam Pub", R.drawable.seoulcafe);
+        Menu r7m1 = new Menu("31", "Bibimbap", R.drawable.seoulbibimbap, r7.getId(), 2300.00, "A bowl of " +
+                "warm white rice topped with seasoned vegetables, kimchi, soy sauce and chilli pepper paste");
+        Menu r7m2 = new Menu("32", "Jjajangmyeon", R.drawable.seouljjajangmyeon, r7.getId(), 1500.00, "Korean " +
+                "noodle dish topped with thick sauce made of chunjang, diced pork and vegetables");
+        Menu r7m3 = new Menu("33", "Kongguksu", R.drawable.seoulkongguksu, r7.getId(), 2000.00, "Korean noodle " +
+                "dish served in a cold soy milk broth");
+        Menu r7m4 = new Menu("34", "Gimbap", R.drawable.seoulgimbap, r7.getId(), 1750.00, "Cooked rice, vegetables " +
+                "and fish that are rolled in dried sheets of seaweed and served in bite sized slices");
+        Menu r7m5 = new Menu("35", "Tteokbokki", R.drawable.seoultteokbokki, r7.getId(), 1600.00, "Simmered cylinder " +
+                "shaped rice cakes served with boiled eggs and scallions. Seasoned with spicy chilli paste");
+        Menu r7m6 = new Menu("36", "Jjigae", R.drawable.seouljjigae, r7.getId(), 2200.00, "Korean stew made with " +
+                "meat in a broth seasoned with chilli paste, soy bean paste and soy sauce");
 
         rDBm.addRestaurant(r1);
         rDBm.addRestaurant(r2);
