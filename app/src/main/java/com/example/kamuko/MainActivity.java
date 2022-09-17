@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageView restImage = findViewById(R.id.restImage);
+        ImageView loginImage = findViewById(R.id.loginImage);
 
         DBModel rDBm = new DBModel();
         rDBm.load(getApplicationContext());
@@ -34,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        loginImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
