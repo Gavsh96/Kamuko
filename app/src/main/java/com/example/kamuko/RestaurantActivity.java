@@ -17,7 +17,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
         FragmentManager frag = getSupportFragmentManager();
         RestaurantFragment restaurantFragment = (RestaurantFragment) frag.findFragmentById(R.id.fragment);
-        restaurantFragment = new RestaurantFragment(rDBm);
+        restaurantFragment = new RestaurantFragment();
         frag.beginTransaction().add(R.id.fragment, restaurantFragment).commit();
     }
 }

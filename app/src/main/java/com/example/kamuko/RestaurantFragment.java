@@ -34,11 +34,6 @@ public class RestaurantFragment extends Fragment implements RestaurantInterface{
         // Required empty public constructor
     }
 
-    public RestaurantFragment(DBModel rDBm)
-    {
-        this.rDBm = rDBm;
-    }
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -71,6 +66,9 @@ public class RestaurantFragment extends Fragment implements RestaurantInterface{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_restaurant, container, false);
+
+        rDBm = new DBModel();
+        rDBm.load(getActivity().getApplicationContext());
         RecyclerView rv = v.findViewById(R.id.RestaurantRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         RestaurantAdapter adapter = new RestaurantAdapter(rDBm, this);
@@ -81,7 +79,7 @@ public class RestaurantFragment extends Fragment implements RestaurantInterface{
 
     @Override
     public void onItemClick(int position) {
-        Fragment fragment = new MenuFragment(rDBm);
+        Fragment fragment = new MenuFragment();
         Bundle args = new Bundle();
         args.putString("id", rDBm.getAllRestaurant().get(position).getId());
         fragment.setArguments(args);

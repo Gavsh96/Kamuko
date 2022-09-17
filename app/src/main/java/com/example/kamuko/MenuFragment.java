@@ -36,11 +36,6 @@ public class MenuFragment extends Fragment implements MenuInterface{
         // Required empty public constructor
     }
 
-    public MenuFragment(DBModel rDBm)
-    {
-        this.rDBm = rDBm;
-    }
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -74,6 +69,8 @@ public class MenuFragment extends Fragment implements MenuInterface{
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_menu, container, false);
 
+        rDBm = new DBModel();
+        rDBm.load(getActivity().getApplicationContext());
         id = getArguments().getString("id");
         RecyclerView rv = v.findViewById(R.id.MenuRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -96,7 +93,7 @@ public class MenuFragment extends Fragment implements MenuInterface{
             }
         }
 
-        Fragment fragment = new MenuDescFragment(rDBm);
+        Fragment fragment = new MenuDescFragment();
         Bundle args = new Bundle();
         args.putString("menuID", menuList.get(position).getId());
         fragment.setArguments(args);

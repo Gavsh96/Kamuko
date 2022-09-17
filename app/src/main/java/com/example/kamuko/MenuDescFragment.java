@@ -42,11 +42,6 @@ public class MenuDescFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public MenuDescFragment(DBModel rDBm)
-    {
-        this.rDBm = rDBm;
-    }
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -80,6 +75,8 @@ public class MenuDescFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_menu_desc, container, false);
 
+        rDBm = new DBModel();
+        rDBm.load(getActivity().getApplicationContext());
         img = v.findViewById(R.id.menuImage);
         text = v.findViewById(R.id.menuText);
         price = v.findViewById(R.id.price);

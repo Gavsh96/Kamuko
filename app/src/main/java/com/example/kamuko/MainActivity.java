@@ -77,12 +77,19 @@ public class MainActivity extends AppCompatActivity {
         Menu r5m6 = new Menu("24", "KFC Cola Special", R.drawable.kfccola, r5.getId(), 100.00, "Test");
 
         Restaurant r6 = new Restaurant("1239", "Ichiraku Ramen", R.drawable.ichiraku);
-        Menu r6m1 = new Menu("25", "Ramen", R.drawable.ichirakuramen, r6.getId(), 100.00, "Test");
-        Menu r6m2 = new Menu("26", "Sushi", R.drawable.ichirakusushi, r6.getId(), 100.00, "Test");
-        Menu r6m3 = new Menu("27", "Miso Soup", R.drawable.ichirakumiso, r6.getId(), 100.00, "Test");
-        Menu r6m4 = new Menu("28", "Omu Raisu", R.drawable.ichirakurisu, r6.getId(), 100.00, "Test");
-        Menu r6m5 = new Menu("29", "Sukiyaki", R.drawable.ichirakusukiyaki, r6.getId(), 100.00, "Test");
-        Menu r6m6 = new Menu("30", "Kawaii Mochi", R.drawable.ichirakumochi, r6.getId(), 100.00, "Test");
+        Menu r6m1 = new Menu("25", "Ramen", R.drawable.ichirakuramen, r6.getId(), 2500.00, "Japanese noodles " +
+                "made with the finest wheat flour and alkaline water to add elasticity. Served in a broth with a slice " +
+                "of pork and bamboo shoots");
+        Menu r6m2 = new Menu("26", "Sushi", R.drawable.ichirakusushi, r6.getId(), 100.00, "Prepared with " +
+                "the finest vinegared rice accompanied by raw seafood and vegetables");
+        Menu r6m3 = new Menu("27", "Miso Soup", R.drawable.ichirakumiso, r6.getId(), 100.00, "Traditional " +
+                "Japanese soup consisting of dashi stock accompanied by tofu and vegetables");
+        Menu r6m4 = new Menu("28", "Omu Raisu", R.drawable.ichirakurisu, r6.getId(), 100.00, "An Omelette " +
+                "made with fried rice and thin, fried scrambled eggs topped off with ketchup");
+        Menu r6m5 = new Menu("29", "Sukiyaki", R.drawable.ichirakusukiyaki, r6.getId(), 100.00, "A Japanese " +
+                "hot pot consisting of sliced beef which is slowly cooked alongside vegetables in a mixture of soy sauce and sugar");
+        Menu r6m6 = new Menu("30", "Kawaii Mochi", R.drawable.ichirakumochi, r6.getId(), 100.00, "A Japanese " +
+                "rice cake made of mochigome, a short grained japonica glutinous rice.");
 
         Restaurant r7 = new Restaurant("1240", "Seoul Cafe", R.drawable.seoulcafe);
         Menu r7m1 = new Menu("31", "Bibimbap", R.drawable.seoulbibimbap, r7.getId(), 100.00, "Test");
