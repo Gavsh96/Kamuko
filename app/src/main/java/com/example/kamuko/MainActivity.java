@@ -80,12 +80,18 @@ public class MainActivity extends AppCompatActivity {
         Menu r4m6 = new Menu("18", "String Hoppers", R.drawable.matarastring, r4.getId(), 100.00, "Test");
 
         Restaurant r5 = new Restaurant("1238", "KFC", R.drawable.kfcimage);
-        Menu r5m1 = new Menu("19", "Fries", R.drawable.kfcfries, r5.getId(), 100.00, "Test");
-        Menu r5m2 = new Menu("20", "Chicken Burger", R.drawable.kfczinger, r5.getId(), 100.00, "Test");
-        Menu r5m3 = new Menu("21", "Beef Burger", R.drawable.kfcbeef, r5.getId(), 100.00, "Test");
-        Menu r5m4 = new Menu("22", "Chicken Sawan", R.drawable.kfcsawan, r5.getId(), 100.00, "Test");
-        Menu r5m5 = new Menu("23", "Chicken Bucket", R.drawable.kfcbucket, r5.getId(), 100.00, "Test");
-        Menu r5m6 = new Menu("24", "KFC Cola Special", R.drawable.kfccola, r5.getId(), 100.00, "Test");
+        Menu r5m1 = new Menu("19", "Fries", R.drawable.kfcfries, r5.getId(), 500.00, "Fresh;y picked potatoes " +
+                "cut and dipped in a flavourful batter and fried to crispy perfection");
+        Menu r5m2 = new Menu("20", "Chicken Burger", R.drawable.kfczinger, r5.getId(), 1500.00, "A flavourful " +
+                "burger bun filled with skinless chicken breast dipped in a batter and fired");
+        Menu r5m3 = new Menu("21", "Beef Burger", R.drawable.kfcbeef, r5.getId(), 100.00, "A burger bun " +
+                "that's beef instead of chicken");
+        Menu r5m4 = new Menu("22", "Chicken Sawan", R.drawable.kfcsawan, r5.getId(), 3000.00, "A chicken Sawan " +
+                "topped with our own gravy and fried chicken. Serves 4 people!");
+        Menu r5m5 = new Menu("23", "Chicken Bucket", R.drawable.kfcbucket, r5.getId(), 2000.00, "Handpicked " +
+                "skinless chicken drumsticks fried in a batter with six different dipping sauces");
+        Menu r5m6 = new Menu("24", "KFC Cola Special", R.drawable.kfccola, r5.getId(), 100.00, "The best " +
+                "Coca Cola you will ever taste. Although mostly filled with ice than cola");
 
         Restaurant r6 = new Restaurant("1239", "Ichiraku Ramen", R.drawable.ichiraku);
         Menu r6m1 = new Menu("25", "Ramen", R.drawable.ichirakuramen, r6.getId(), 2500.00, "Japanese noodles " +

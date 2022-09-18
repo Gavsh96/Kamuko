@@ -1,14 +1,18 @@
 package com.example.kamuko;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +30,7 @@ public class CartFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private DBModel rDBm;
+    Button checkoutButton;
 
     public CartFragment() {
         // Required empty public constructor
@@ -66,11 +71,32 @@ public class CartFragment extends Fragment {
 
         rDBm = new DBModel();
         rDBm.load(getActivity().getApplicationContext());
+        checkoutButton = v.findViewById(R.id.checkout);
 
         RecyclerView rv = v.findViewById(R.id.CartRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         CartAdapter adapter = new CartAdapter(rDBm);
         rv.setAdapter(adapter);
+
+        checkoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!rDBm.getAllLoggedIn().isEmpty())
+                {
+                    Fragment fragment = new CheckoutFragment();
+                    FragmentManager frag = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = frag.beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+                else
+                {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
 
         return v;
     }
