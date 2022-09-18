@@ -3,7 +3,10 @@ package com.example.kamuko;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +38,7 @@ public class MenuDescFragment extends Fragment {
     TextView countView;
     Button addButton;
     Button subButton;
+    Button buttonCart;
     int pos;
     int count;
 
@@ -83,6 +87,7 @@ public class MenuDescFragment extends Fragment {
         addButton = v.findViewById(R.id.plusButton);
         subButton = v.findViewById(R.id.minusButton);
         countView = v.findViewById(R.id.quantity);
+        buttonCart = v.findViewById(R.id.cartButton);
 
         String id = getArguments().getString("menuID");
         ArrayList<Menu> allMenu = rDBm.getAllMenu();
@@ -102,6 +107,49 @@ public class MenuDescFragment extends Fragment {
         price.setText(String.valueOf(allMenu.get(pos).getPrice()));
         countView.setText(String.valueOf(count));
 
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count = count + 1;
+                countView.setText(String.valueOf(count));
+                ArrayList<Cart> cart = rDBm.getAllCartItems();
+                if(!cart.isEmpty())
+                {
+                    for (Cart item: cart)
+                    {
+                        if(item.getId().equals(allMenu.get(pos).getId()))
+                        {
+                            //rDBm.removeCartItem(item);
+                            //rDBm.addCartItem(new Cart(allMenu.get(pos).getId(), count));
+                            item.setCount(count);
+                            Log.d("Item", "Same item repeated therefore count increased. |Count: "+count+" ID : "+item.getId());
+                        }
+                        else
+                        {
+                            rDBm.addCartItem(new Cart(allMenu.get(pos).getId(), count));
+                            Log.d("Item", "Added new Item to cart |ID: "+allMenu.get(pos).getId()+" Count : "+count);
+                        }
+                    }
+                }
+                else
+                {
+                    rDBm.addCartItem(new Cart(allMenu.get(pos).getId(), count));
+                    Log.d("Item", "New Cart item added |Count: "+count+" ID : "+allMenu.get(pos).getId());
+                }
+            }
+        });
+
+        buttonCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new CartFragment();
+                FragmentManager frag = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = frag.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
         return v;
     }
 }

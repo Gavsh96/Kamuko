@@ -76,6 +76,11 @@ public class MenuDescActivity extends AppCompatActivity {
                             rDBm.addCartItem(new Cart(allMenu.get(pos).getId(), count));
                             Log.d("Item", "Previous Cart item removed and new added |Count: "+item.getCount()+" ID : "+item.getId());
                         }
+                        else
+                        {
+                            rDBm.addCartItem(new Cart(allMenu.get(pos).getId(), count));
+                            Log.d("Item", "Added new Item to cart |ID: "+allMenu.get(pos).getId()+" Count : "+count);
+                        }
                     }
                 }
                 else
