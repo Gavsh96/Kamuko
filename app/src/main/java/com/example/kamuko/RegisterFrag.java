@@ -3,13 +3,10 @@ package com.example.kamuko;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.SurfaceControl;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -19,28 +16,28 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class LoginFrag extends Fragment {
+public class RegisterFrag extends Fragment {
 
     private DBModel rDBm;
     private TextView emailText;
     private EditText emailIn;
     private TextView passwordText;
     private EditText passwordIn;
-    private Button Login;
-    private Button Register;
-    private Button SignOut;
-    private String userID;
-    private String password;
+    private TextView nameText;
+    private EditText nameIn;
+    private Button completeReg;
     private TextView notification;
     private ArrayList<LoggedIn> loggedIn;
     private ArrayList<User> userData;
     private Iterator<User> itU;
+    private String userID;
+    private String password;
+    private String name;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_register, container, false);
         rDBm = new DBModel();
         rDBm.load(getActivity().getApplicationContext());
 
@@ -49,77 +46,47 @@ public class LoginFrag extends Fragment {
 
         emailText = view.findViewById(R.id.emailText);
         passwordText = view.findViewById(R.id.passwordText);
+        nameText = view.findViewById(R.id.nameText);
         emailIn = view.findViewById(R.id.emailIn);
         passwordIn = view.findViewById(R.id.passwordIn);
-        Login = view.findViewById(R.id.loginBt);
-        Register = view.findViewById(R.id.registerBt);
-        SignOut = view.findViewById(R.id.signoutBt);
+        nameIn = view.findViewById(R.id.nameIn);
+        completeReg =view.findViewById(R.id.registerBt);
         notification = view.findViewById(R.id.notification);
 
-        SignOut.setEnabled(!loggedIn.isEmpty() && loggedIn.size() < 2);
         emailIn.addTextChangedListener(textDetector);
+        nameIn.addTextChangedListener(textDetector);
         passwordIn.addTextChangedListener(textDetector);
 
         emailText.setText("Email");
+        nameText.setText("Full Name");
         passwordText.setText("Password");
 
-
-        Login.setOnClickListener(new View.OnClickListener() {
+        completeReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 userID = emailIn.getText().toString();
                 password = passwordIn.getText().toString();
+                name = nameIn.getText().toString();
 
-                User user = searchUser(userID, password);
-                if (user != null)
+                User user = searchUser(userID);
+                if (user == null)
                 {
+                    User newUser = new User(userID,name,password);
+                    rDBm.addUser(newUser);
                     rDBm.deleteAllLoggedIn();
-                    LoggedIn lI = new LoggedIn(user.getUserId(), user.getName());
+                    LoggedIn lI = new LoggedIn(newUser.getUserId(), newUser.getName());
                     rDBm.addLoggedIn(lI);
-                    String name = user.getName();
-                    notification.setText(name+" logged in !");
+                    String name = newUser.getName();
+                    notification.setText(name+" registered and logged in !");
                 }
                 else
                 {
-                    notification.setText("This user is not registered !");
-                }
-
-            }
-
-        });
-
-        Register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment regFrag = new RegisterFrag();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.LAfragment1, regFrag);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-            }
-        });
-
-        SignOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if(!loggedIn.isEmpty() && loggedIn.size() < 2)
-                {
-                    String name = loggedIn.get(0).getName();
-                    rDBm.deleteAllLoggedIn();
-                    loggedIn = rDBm.getAllLoggedIn();
-                    notification.setText("Sign out from " +name+ " complete");
-                }
-                else
-                {
-                    notification.setText("You are not logged in to sign out");
+                    notification.setText("This email is already registered !");
                 }
             }
         });
 
         return view;
-
     }
 
     private TextWatcher textDetector = new TextWatcher() {
@@ -131,9 +98,10 @@ public class LoginFrag extends Fragment {
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             String inputId = emailIn.getText().toString().trim();
+            String inputName = nameIn.getText().toString().trim();
             String inputPassword = passwordIn.getText().toString().trim();
 
-            Login.setEnabled(!inputId.isEmpty() && !inputPassword.isEmpty());
+            completeReg.setEnabled(!inputId.isEmpty() && !inputPassword.isEmpty() && !inputName.isEmpty());
         }
 
         @Override
@@ -142,19 +110,18 @@ public class LoginFrag extends Fragment {
         }
     };
 
-    private User searchUser(String userID, String password)
+    private User searchUser(String userID)
     {
         itU = userData.iterator();
 
         while (itU.hasNext())
         {
             User user = itU.next();
-            if(user.getUserId().equals(userID) && user.getPassword().equals(password))
+            if(user.getUserId().equals(userID))
             {
                 return user;
             }
         }
         return null;
     }
-
 }
