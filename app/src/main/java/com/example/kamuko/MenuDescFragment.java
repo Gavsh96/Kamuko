@@ -39,6 +39,7 @@ public class MenuDescFragment extends Fragment {
     Button addButton;
     Button subButton;
     Button buttonCart;
+    Button addCart;
     int pos;
     int count;
 
@@ -88,6 +89,7 @@ public class MenuDescFragment extends Fragment {
         subButton = v.findViewById(R.id.minusButton);
         countView = v.findViewById(R.id.quantity);
         buttonCart = v.findViewById(R.id.cartButton);
+        addCart = v.findViewById(R.id.addToCart);
 
         String id = getArguments().getString("menuID");
         ArrayList<Menu> allMenu = rDBm.getAllMenu();
@@ -112,7 +114,7 @@ public class MenuDescFragment extends Fragment {
             public void onClick(View view) {
                 count = count + 1;
                 countView.setText(String.valueOf(count));
-                ArrayList<Cart> cart = rDBm.getAllCartItems();
+                /*ArrayList<Cart> cart = rDBm.getAllCartItems();
                 if(!cart.isEmpty())
                 {
                     for (Cart item: cart)
@@ -135,19 +137,47 @@ public class MenuDescFragment extends Fragment {
                 {
                     rDBm.addCartItem(new Cart(allMenu.get(pos).getId(), count));
                     Log.d("Item", "New Cart item added |Count: "+count+" ID : "+allMenu.get(pos).getId());
-                }
+                }*/
+            }
+        });
+
+        subButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count = count - 1;
+                countView.setText(String.valueOf(count));
+            }
+        });
+
+        addCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rDBm.addCartItem(new Cart(allMenu.get(pos).getId(), count));
             }
         });
 
         buttonCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment = new CartFragment();
-                FragmentManager frag = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = frag.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                ArrayList<Cart> cart = rDBm.getAllCartItems();
+                if(cart.isEmpty())
+                {
+                    Fragment fragment = new EmptyCartFragment();
+                    FragmentManager frag = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = frag.beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+                else
+                {
+                    Fragment fragment = new CartFragment();
+                    FragmentManager frag = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = frag.beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
             }
         });
         return v;
