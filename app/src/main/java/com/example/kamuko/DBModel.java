@@ -90,6 +90,7 @@ public class DBModel {
         ContentValues cv = new ContentValues();
         cv.put(DBSchema.cartTable.Cols.ID, item.getId());
         cv.put(DBSchema.cartTable.Cols.COUNT, item.getCount());
+        cv.put(DBSchema.cartTable.Cols.PRICE, item.getPrice());
         db.insert(DBSchema.cartTable.NAME, null, cv);
     }
 

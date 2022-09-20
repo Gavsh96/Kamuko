@@ -56,6 +56,7 @@ public class DBSchema {
         public static class Cols{
             public static final String ID = "id";
             public static final String COUNT = "count";
+            public static final String PRICE = "price";
         }
     }
 }

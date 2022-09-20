@@ -20,7 +20,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartVH> {
     {
         this.rDBm = rDBm;
         list = rDBm.getAllCartItems();
-        menuList = rDBm.getAllMenu();
+        /*menuList = rDBm.getAllMenu();
 
         for (Menu menu: menuList)
         {
@@ -31,7 +31,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartVH> {
                     temp.add(menu);
                 }
             }
-        }
+        }*/
     }
 
     @NonNull
@@ -45,7 +45,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartVH> {
 
     @Override
     public void onBindViewHolder(@NonNull CartVH holder, int position) {
-        holder.name.setText("Test");
+        holder.name.setText(list.get(position).getId());
         holder.qty.setText("2");
     }
 

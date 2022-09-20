@@ -152,7 +152,7 @@ public class MenuDescFragment extends Fragment {
         addCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rDBm.addCartItem(new Cart(allMenu.get(pos).getId(), count));
+                rDBm.addCartItem(new Cart(allMenu.get(pos).getName(), count, allMenu.get(pos).getPrice()*count));
             }
         });
 

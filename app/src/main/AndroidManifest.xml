@@ -16,9 +16,6 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuDescActivity"
-            android:exported="false" />
-        <activity
             android:name=".RestaurantActivity"
             android:exported="false" />
         <activity

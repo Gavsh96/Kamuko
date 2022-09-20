@@ -4,10 +4,20 @@ public class Cart
 {
     String id;
     int count;
+    double price;
 
-    public Cart(String id, int count) {
+    public Cart(String id, int count, double price) {
         this.id = id;
         this.count = count;
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getId() {
