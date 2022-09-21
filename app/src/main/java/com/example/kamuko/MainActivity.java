@@ -122,6 +122,14 @@ public class MainActivity extends AppCompatActivity {
         Menu r7m6 = new Menu("36", "Jjigae", R.drawable.seouljjigae, r7.getId(), 2200.00, "Korean stew made with " +
                 "meat in a broth seasoned with chilli paste, soy bean paste and soy sauce");
 
+        Restaurant r8 = new Restaurant("1241", "Hotel De Pilawoos", R.drawable.restaurant);
+        Menu r8m1 = new Menu("37", "Cheese Kotthu", R.drawable.profile, r8.getId(), 1100.00, "Test");
+        Menu r8m2 = new Menu("38", "Fried Beef Kotthu", R.drawable.profile, r8.getId(), 1250.00, "Test");
+        Menu r8m3 = new Menu("39", "Egg Rotti", R.drawable.profile, r8.getId(), 660.00, "Test");
+        Menu r8m4 = new Menu("40", "Chicken Curry", R.drawable.profile, r8.getId(), 550.00, "Test");
+        Menu r8m5 = new Menu("41", "Iced Milo", R.drawable.profile, r8.getId(), 350.00, "Test");
+        Menu r8m6 = new Menu("42", "Fruit Cake", R.drawable.profile, r8.getId(), 250.00, "Test");
+
         rDBm.addRestaurant(r1);
         rDBm.addRestaurant(r2);
         rDBm.addRestaurant(r3);
@@ -129,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         rDBm.addRestaurant(r5);
         rDBm.addRestaurant(r6);
         rDBm.addRestaurant(r7);
+        rDBm.addRestaurant(r8);
 
         rDBm.addMenu(r2m1);
         rDBm.addMenu(r2m2);
@@ -171,6 +180,13 @@ public class MainActivity extends AppCompatActivity {
         rDBm.addMenu(r7m4);
         rDBm.addMenu(r7m5);
         rDBm.addMenu(r7m6);
+
+        rDBm.addMenu(r8m1);
+        rDBm.addMenu(r8m2);
+        rDBm.addMenu(r8m3);
+        rDBm.addMenu(r8m4);
+        rDBm.addMenu(r8m5);
+        rDBm.addMenu(r8m6);
 
         User u1 = new User("1234ga", "ppsmols", "123456");
         rDBm.addUser(u1);
