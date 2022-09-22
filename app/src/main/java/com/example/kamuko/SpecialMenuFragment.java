@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * Use the {@link SpecialMenuFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SpecialMenuFragment extends Fragment implements SpecialMenuInterface{
+public class SpecialMenuFragment extends Fragment{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,11 +34,6 @@ public class SpecialMenuFragment extends Fragment implements SpecialMenuInterfac
 
     public SpecialMenuFragment() {
         // Required empty public constructor
-    }
-
-    public SpecialMenuFragment(DBModel dbModel)
-    {
-        this.dbModel = dbModel;
     }
 
     /**
@@ -74,17 +69,12 @@ public class SpecialMenuFragment extends Fragment implements SpecialMenuInterfac
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_special_menu, container, false);
 
+        dbModel = new DBModel();
+        dbModel.load(getActivity().getApplicationContext());
         RecyclerView rv = v.findViewById(R.id.SpecialMenuRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        SpecialMenuAdapter adapter = new SpecialMenuAdapter(dbModel, this);
+        SpecialMenuAdapter adapter = new SpecialMenuAdapter(dbModel);
         rv.setAdapter(adapter);
         return v;
-    }
-
-    @Override
-    public void onSpecialClick(int position, ArrayList<Menu> list) {
-        Intent intent = new Intent(getActivity(), LoginActivity.class);
-        intent.putExtra("id", list.get(position).getId());
-        startActivity(intent);
     }
 }

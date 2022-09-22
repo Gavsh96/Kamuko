@@ -14,24 +14,10 @@ public class SpecialMenuVH extends RecyclerView.ViewHolder {
     public ImageView imageView;
     public TextView textView;
 
-    public SpecialMenuVH(@NonNull View itemView, SpecialMenuInterface specialMenuInterface, ArrayList<Menu> list) {
+    public SpecialMenuVH(@NonNull View itemView) {
         super(itemView);
 
         imageView = itemView.findViewById(R.id.specialImage);
         textView = itemView.findViewById(R.id.specialText);
-
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(specialMenuInterface != null)
-                {
-                    int position = getAdapterPosition();
-                    if(position != RecyclerView.NO_POSITION)
-                    {
-                        specialMenuInterface.onSpecialClick(position, list);
-                    }
-                }
-            }
-        });
     }
 }

@@ -20,24 +20,9 @@ public class LoginActivity extends AppCompatActivity {
         DBModel rDBm = new DBModel();
         rDBm.load(getApplicationContext());
 
-        Intent intent = getIntent();
-        String id = intent.getStringExtra("id");
-
-        if(id != null)
-        {
-            Fragment fragment = new MenuDescFragment();
-            Bundle args = new Bundle();
-            args.putString("menuID", id);
-            fragment.setArguments(args);
-            FragmentManager frag = getSupportFragmentManager();
-            frag.beginTransaction().add(R.id.LAfragment1, fragment).commit();
-        }
-        else
-        {
-            FragmentManager frag = getSupportFragmentManager();
-            LoginFrag loginFrag = (LoginFrag) frag.findFragmentById(R.id.LAfragment1);
-            loginFrag = new LoginFrag();
-            frag.beginTransaction().add(R.id.LAfragment1, loginFrag).commit();
-        }
+        FragmentManager frag = getSupportFragmentManager();
+        LoginFrag loginFrag = (LoginFrag) frag.findFragmentById(R.id.LAfragment1);
+        loginFrag = new LoginFrag();
+        frag.beginTransaction().add(R.id.LAfragment1, loginFrag).commit();
     }
 }

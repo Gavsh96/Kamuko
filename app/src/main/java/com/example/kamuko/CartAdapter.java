@@ -51,6 +51,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartVH> {
 
     @Override
     public int getItemCount() {
-        return 7;
+        return list.size();
     }
 }

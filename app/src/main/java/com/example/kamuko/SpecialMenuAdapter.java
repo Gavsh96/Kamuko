@@ -16,12 +16,10 @@ public class SpecialMenuAdapter extends RecyclerView.Adapter<SpecialMenuVH> {
     DBModel dbModel;
     ArrayList<Menu> menuList = new ArrayList<>();
     Random rand = new Random();
-    SpecialMenuInterface specialMenuInterface;
 
-    public SpecialMenuAdapter(DBModel dbModel, SpecialMenuInterface specialMenuInterface)
+    public SpecialMenuAdapter(DBModel dbModel)
     {
         this.dbModel = dbModel;
-        this.specialMenuInterface = specialMenuInterface;
         ArrayList<Menu> allMenu = dbModel.getAllMenu();
         ArrayList<Integer> list = new ArrayList<>();
         int temp;
@@ -42,7 +40,7 @@ public class SpecialMenuAdapter extends RecyclerView.Adapter<SpecialMenuVH> {
     public SpecialMenuVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.special_menu, parent, false);
-        SpecialMenuVH viewHolder = new SpecialMenuVH(view, specialMenuInterface, menuList);
+        SpecialMenuVH viewHolder = new SpecialMenuVH(view);
         return viewHolder;
     }
 

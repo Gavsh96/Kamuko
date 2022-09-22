@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager frag = getSupportFragmentManager();
         SpecialMenuFragment specialMenuFragment = (SpecialMenuFragment) frag.findFragmentById(R.id.frameLayout);
-        specialMenuFragment = new SpecialMenuFragment(rDBm);
+        specialMenuFragment = new SpecialMenuFragment();
         frag.beginTransaction().add(R.id.frameLayout, specialMenuFragment).commit();
 
         restImage.setOnClickListener(new View.OnClickListener() {
