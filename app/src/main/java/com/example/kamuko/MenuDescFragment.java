@@ -27,6 +27,7 @@ public class MenuDescFragment extends Fragment {
     Button subButton;
     Button buttonCart;
     Button addCart;
+    ArrayList<Cart> cart;
     int pos;
     int count;
 
@@ -38,6 +39,7 @@ public class MenuDescFragment extends Fragment {
 
         rDBm = new DBModel();
         rDBm.load(getActivity().getApplicationContext());
+
         img = v.findViewById(R.id.menuImage);
         text = v.findViewById(R.id.menuText);
         price = v.findViewById(R.id.price);
@@ -110,13 +112,15 @@ public class MenuDescFragment extends Fragment {
             public void onClick(View view) {
                 Cart cItem = new Cart(allMenu.get(pos).getName(), count, allMenu.get(pos).getPrice()*count);
                 rDBm.addCartItem(cItem);
+                cart = rDBm.getAllCartData();
+                text.setText(cart.size());
             }
         });
 
         buttonCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<Cart> cart = rDBm.getAllCartItems();
+                cart = rDBm.getAllCartData();
                 Fragment fragment;
                 if(cart.isEmpty())
                 {
@@ -124,8 +128,7 @@ public class MenuDescFragment extends Fragment {
                 }
                 else
                 {
-                    fragment = new LoginFrag();
-                    //fragment = new CartFragment();
+                    fragment = new CartFragment();
                 }
                 FragmentManager frag = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = frag.beginTransaction();

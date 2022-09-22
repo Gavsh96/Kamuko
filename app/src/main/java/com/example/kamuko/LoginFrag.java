@@ -77,7 +77,8 @@ public class LoginFrag extends Fragment {
                     LoggedIn lI = new LoggedIn(user.getUserId(), user.getName());
                     rDBm.addLoggedIn(lI);
                     String name = user.getName();
-                    notification.setText(name+" logged in !");
+                    loggedIn = rDBm.getAllLoggedIn();
+                    notification.setText(name+" logged in !"+loggedIn.size());
                 }
                 else
                 {

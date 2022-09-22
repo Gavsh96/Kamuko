@@ -94,26 +94,22 @@ public class DBModel {
         db.insert(DBSchema.cartTable.NAME, null, cv);
     }
 
-    public ArrayList<Cart> getAllCartItems()
-    {
-        ArrayList<Cart> cartArrayList = new ArrayList<>();
-        Cursor cursor = db.query(DBSchema.cartTable.NAME, null,null,null,null,null,null);
+    public ArrayList<Cart> getAllCartData(){
+        ArrayList<Cart> cartList = new ArrayList<>();
+        Cursor cursor = db.query(DBSchema.cartTable.NAME,null,null,null,null,null,null);
         DBCursor DBCursor = new DBCursor(cursor);
 
-        try
-        {
+        try{
             DBCursor.moveToFirst();
-            while (!DBCursor.isAfterLast())
-            {
-                cartArrayList.add(DBCursor.getCartItem());
+            while(!DBCursor.isAfterLast()){
+                cartList.add(DBCursor.getCartItem());
                 DBCursor.moveToNext();
             }
         }
         finally {
             cursor.close();
         }
-
-        return cartArrayList;
+        return cartList;
     }
 
     public void removeCartItem(Cart item)

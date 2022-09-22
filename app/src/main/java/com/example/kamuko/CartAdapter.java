@@ -19,7 +19,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartVH> {
     public CartAdapter(DBModel rDBm)
     {
         this.rDBm = rDBm;
-        list = rDBm.getAllCartItems();
+        list = rDBm.getAllCartData();
         /*menuList = rDBm.getAllMenu();
 
         for (Menu menu: menuList)
