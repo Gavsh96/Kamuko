@@ -46,7 +46,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartVH> {
     @Override
     public void onBindViewHolder(@NonNull CartVH holder, int position) {
         holder.name.setText(list.get(position).getId());
-        holder.qty.setText("2");
+        holder.qty.setText(String.valueOf(list.get(position).getCount()));
     }
 
     @Override
