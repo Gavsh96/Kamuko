@@ -51,8 +51,28 @@ public class MenuDescFragment extends Fragment {
 
         String id = getArguments().getString("menuID");
         ArrayList<Menu> allMenu = rDBm.getAllMenu();
+
+        // From this point onwards was newly added for Cart Description
+        // Though this code is temporary till finding a better approach
+        ArrayList<Cart> items = rDBm.getAllCartData();
+        if(!items.isEmpty())
+        {
+            for (Cart item: items)
+            {
+                if(item.getId().equals(id))
+                {
+                    count = item.getCount();
+                    break;
+                }
+            }
+        }
+        else
+        {
+            count = 0;
+        }
+        // From point ends temporary code
+
         pos = 0;
-        count = 0;
 
         for(int i = 0; i < allMenu.size(); i++)
         {
@@ -72,30 +92,6 @@ public class MenuDescFragment extends Fragment {
             public void onClick(View view) {
                 count = count + 1;
                 countView.setText(String.valueOf(count));
-                /*ArrayList<Cart> cart = rDBm.getAllCartItems();
-                if(!cart.isEmpty())
-                {
-                    for (Cart item: cart)
-                    {
-                        if(item.getId().equals(allMenu.get(pos).getId()))
-                        {
-                            //rDBm.removeCartItem(item);
-                            //rDBm.addCartItem(new Cart(allMenu.get(pos).getId(), count));
-                            item.setCount(count);
-                            Log.d("Item", "Same item repeated therefore count increased. |Count: "+count+" ID : "+item.getId());
-                        }
-                        else
-                        {
-                            rDBm.addCartItem(new Cart(allMenu.get(pos).getId(), count));
-                            Log.d("Item", "Added new Item to cart |ID: "+allMenu.get(pos).getId()+" Count : "+count);
-                        }
-                    }
-                }
-                else
-                {
-                    rDBm.addCartItem(new Cart(allMenu.get(pos).getId(), count));
-                    Log.d("Item", "New Cart item added |Count: "+count+" ID : "+allMenu.get(pos).getId());
-                }*/
             }
         });
 

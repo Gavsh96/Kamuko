@@ -14,12 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CartFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CartFragment extends Fragment {
+public class CartFragment extends Fragment implements CartInterface{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,6 +33,7 @@ public class CartFragment extends Fragment {
     private String mParam2;
     private DBModel rDBm;
     Button checkoutButton;
+    ArrayList<Cart> list;
 
     public CartFragment() {
         // Required empty public constructor
@@ -71,11 +74,12 @@ public class CartFragment extends Fragment {
 
         rDBm = new DBModel();
         rDBm.load(getActivity().getApplicationContext());
+        list = rDBm.getAllCartData();
         checkoutButton = v.findViewById(R.id.checkout);
 
         RecyclerView rv = v.findViewById(R.id.CartRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        CartAdapter adapter = new CartAdapter(rDBm);
+        CartAdapter adapter = new CartAdapter(rDBm, this);
         rv.setAdapter(adapter);
 
         checkoutButton.setOnClickListener(new View.OnClickListener() {
@@ -99,5 +103,18 @@ public class CartFragment extends Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void onCartClick(int position) {
+        Fragment fragment = new MenuDescFragment();
+        Bundle args = new Bundle();
+        args.putString("menuID", list.get(position).getId());
+        fragment.setArguments(args);
+        FragmentManager frag = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = frag.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
