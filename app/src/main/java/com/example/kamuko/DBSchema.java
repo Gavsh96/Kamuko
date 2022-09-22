@@ -55,6 +55,7 @@ public class DBSchema {
         public static final String NAME = "cart";
         public static class Cols{
             public static final String ID = "id";
+            public static final String MENUNAME = "name";
             public static final String COUNT = "count";
             public static final String PRICE = "price";
         }

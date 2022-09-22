@@ -21,7 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("create table "+ DBSchema.userTable.NAME+"("+ DBSchema.userTable.Cols.ID+" Text, "+ DBSchema.userTable.Cols.NAME+" Text, "+ DBSchema.userTable.Cols.PASSWORD+" Text);");
         sqLiteDatabase.execSQL("create table "+ DBSchema.orderHistoryTable.NAME+"("+ DBSchema.orderHistoryTable.Cols.ID+" Text, "+ DBSchema.orderHistoryTable.Cols.ITEMS+" Text, "+ DBSchema.orderHistoryTable.Cols.DATE+" Text, "+ DBSchema.orderHistoryTable.Cols.TIME+ " Text, "+ DBSchema.orderHistoryTable.Cols.RESTNAME+" Text, "+ DBSchema.orderHistoryTable.Cols.COST+" Text);");
         sqLiteDatabase.execSQL("create table "+ DBSchema.loggedInTable.NAME+"("+ DBSchema.loggedInTable.Cols.ID+" Text, "+ DBSchema.loggedInTable.Cols.NAME+" Text);");
-        sqLiteDatabase.execSQL("create table "+ DBSchema.cartTable.NAME+"("+ DBSchema.cartTable.Cols.ID+" Text, "+ DBSchema.cartTable.Cols.COUNT+" Text, "+ DBSchema.cartTable.Cols.PRICE+" Text);");
+        sqLiteDatabase.execSQL("create table "+ DBSchema.cartTable.NAME+"("+ DBSchema.cartTable.Cols.ID+" Text, "+ DBSchema.cartTable.Cols.MENUNAME+" Text, "+DBSchema.cartTable.Cols.COUNT+" Text, "+ DBSchema.cartTable.Cols.PRICE+" Text);");
     }
 
     @Override

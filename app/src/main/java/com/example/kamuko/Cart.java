@@ -3,11 +3,13 @@ package com.example.kamuko;
 public class Cart
 {
     String id;
+    String menuName;
     int count;
     double price;
 
-    public Cart(String id, int count, double price) {
+    public Cart(String id, String menuName, int count, double price) {
         this.id = id;
+        this.menuName = menuName;
         this.count = count;
         this.price = price;
     }
@@ -34,5 +36,13 @@ public class Cart
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public String getMenuName() {
+        return menuName;
+    }
+
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
     }
 }

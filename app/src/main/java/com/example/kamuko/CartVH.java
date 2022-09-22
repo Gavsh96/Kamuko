@@ -10,11 +10,13 @@ public class CartVH extends RecyclerView.ViewHolder {
 
     TextView name;
     TextView qty;
+    TextView Price;
 
     public CartVH(@NonNull View itemView) {
         super(itemView);
 
         name = itemView.findViewById(R.id.name);
         qty = itemView.findViewById(R.id.qty);
+        Price = itemView.findViewById(R.id.price);
     }
 }
