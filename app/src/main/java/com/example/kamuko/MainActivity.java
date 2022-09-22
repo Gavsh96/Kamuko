@@ -129,6 +129,19 @@ public class MainActivity extends AppCompatActivity {
         Menu r8m5 = new Menu("41", "Iced Milo", R.drawable.profile, r8.getId(), 350.00, "Test");
         Menu r8m6 = new Menu("42", "Fruit Cake", R.drawable.profile, r8.getId(), 250.00, "Test");
 
+        Restaurant r9 = new Restaurant("1242", "Taj Palace", R.drawable.indianimage);
+        Menu r9m1 = new Menu("43", "Samosa", R.drawable.samosa, r9.getId(), 120.00, "Fried Pastry with a savory filling " +
+                "including ingredients such as potatoes, onions and peas");
+        Menu r9m2 = new Menu("44", "Tandoori Chicken", R.drawable.tandoorichicken, r9.getId(), 800.00, "Chicken marinated " +
+                "in yogurt and spices and roasted in a cylindrical clay oven");
+        Menu r9m3 = new Menu("45", "Biriyani", R.drawable.biriyani, r9.getId(), 1500.00, "A mixed rice dish made with " +
+                "Indian spices and chicken in a clay pot");
+        Menu r9m4 = new Menu("46", "Naan Rotti", R.drawable.naan, r9.getId(), 1200.00, "A leavened oven baked faltbread");
+        Menu r9m5 = new Menu("47", "Lassi", R.drawable.lassi, r9.getId(), 500.00, "A traditional yogurt based drink which has " +
+                "a blend of yogurt, water and spices");
+        Menu r9m6 = new Menu("48", "Gulab Jamun", R.drawable.gulabjamun, r9.getId(), 500.00, "A sweet confectionary made " +
+                "with milk solids and garnished with dried nuts");
+
         rDBm.addRestaurant(r1);
         rDBm.addRestaurant(r2);
         rDBm.addRestaurant(r3);
@@ -137,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
         rDBm.addRestaurant(r6);
         rDBm.addRestaurant(r7);
         rDBm.addRestaurant(r8);
+        rDBm.addRestaurant(r9);
 
         rDBm.addMenu(r2m1);
         rDBm.addMenu(r2m2);
@@ -186,6 +200,13 @@ public class MainActivity extends AppCompatActivity {
         rDBm.addMenu(r8m4);
         rDBm.addMenu(r8m5);
         rDBm.addMenu(r8m6);
+
+        rDBm.addMenu(r9m1);
+        rDBm.addMenu(r9m2);
+        rDBm.addMenu(r9m3);
+        rDBm.addMenu(r9m4);
+        rDBm.addMenu(r9m5);
+        rDBm.addMenu(r9m6);
 
         User u1 = new User("1234ga", "ppsmols", "123456");
         rDBm.addUser(u1);
