@@ -84,6 +84,8 @@ public class LoginFrag extends Fragment {
                     notification.setText("This user is not registered !");
                 }
 
+                loggedIn = rDBm.getAllLoggedIn();
+                SignOut.setEnabled(!loggedIn.isEmpty() && loggedIn.size() < 2);
             }
 
         });
