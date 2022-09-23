@@ -95,6 +95,7 @@ public class CartFragment extends Fragment implements CartInterface{
                 if(!rDBm.getAllLoggedIn().isEmpty())
                 {
                     OrderHistory oH = new OrderHistory(lI.get(0).getUserId(),makeString(),"dsad","sadsdasda","sdasdasda", 55);
+                    rDBm.addOrderHistory(oH);
                     Fragment fragment = new CheckoutFragment();
                     FragmentManager frag = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = frag.beginTransaction();
