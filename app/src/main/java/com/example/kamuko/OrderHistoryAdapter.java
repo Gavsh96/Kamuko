@@ -15,7 +15,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryVH> {
     private int count = 0;
     private DBModel rDBm;
     private ArrayList<OrderHistory> oH;
-    private ArrayList<OrderHistory> oH2;
+    private ArrayList<OrderHistory> oH2 = new ArrayList<>();
     private Iterator<OrderHistory> itU;
     private ArrayList<LoggedIn> lI;
     private String uID;
@@ -51,7 +51,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryVH> {
 
     @Override
     public int getItemCount() {
-        return oH2.size();
+        return count;
     }
 
     private void searchOH(String userID)
