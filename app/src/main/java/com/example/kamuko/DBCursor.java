@@ -41,7 +41,7 @@ public class DBCursor extends CursorWrapper {
         String date = getString(getColumnIndex(DBSchema.orderHistoryTable.Cols.DATE));
         String time = getString(getColumnIndex(DBSchema.orderHistoryTable.Cols.TIME));
         String restaurantName = getString(getColumnIndex(DBSchema.orderHistoryTable.Cols.RESTNAME));
-        Integer cost = getInt(getColumnIndex(DBSchema.orderHistoryTable.Cols.COST));
+        Double cost = getDouble(getColumnIndex(DBSchema.orderHistoryTable.Cols.COST));
         return  new OrderHistory(userId,items,date,time,restaurantName,cost);
     }
 

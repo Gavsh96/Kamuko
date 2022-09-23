@@ -94,7 +94,7 @@ public class CartFragment extends Fragment implements CartInterface{
             public void onClick(View view) {
                 if(!rDBm.getAllLoggedIn().isEmpty())
                 {
-                    OrderHistory oH = new OrderHistory(lI.get(0).getUserId(),makeString(),"dsad","sadsdasda","sdasdasda", 55);
+                    OrderHistory oH = new OrderHistory(lI.get(0).getUserId(),makeString(),"dsad","sadsdasda","sdasdasda", TotalCost());
                     rDBm.addOrderHistory(oH);
                     Fragment fragment = new CheckoutFragment();
                     FragmentManager frag = getActivity().getSupportFragmentManager();
@@ -135,9 +135,23 @@ public class CartFragment extends Fragment implements CartInterface{
         while (itU.hasNext())
         {
             Cart cItems = itU.next();
-            items = items +" "+ cItems.getMenuName() +" "+ cItems.getCount();
+            items = items +" "+ cItems.getCount() +" "+ cItems.getMenuName();
         }
 
         return items;
+    }
+
+    private Double TotalCost()
+    {
+        double cost = 0;
+        itU = list.iterator();
+
+        while (itU.hasNext())
+        {
+            Cart cItems = itU.next();
+            cost = cost + cItems.getPrice();
+        }
+
+        return cost;
     }
 }

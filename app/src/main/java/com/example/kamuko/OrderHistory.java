@@ -7,11 +7,11 @@ public class OrderHistory {
     String date;
     String time;
     String restaurantName;
-    Integer cost;
+    Double cost;
 
 
 
-    public OrderHistory(String userId, String items, String date, String time, String restaurantName, Integer cost)
+    public OrderHistory(String userId, String items, String date, String time, String restaurantName, Double cost)
     {
         this.userId = userId;
         this.items = items;
@@ -49,7 +49,7 @@ public class OrderHistory {
 
     public void setRestaurantName(String restaurantName) { this.restaurantName = restaurantName; }
 
-    public Integer getCost() { return cost; }
+    public Double getCost() { return cost; }
 
-    public void setTime(Integer cost) { this.cost = cost; }
+    public void setTime(Double cost) { this.cost = cost; }
 }
