@@ -34,7 +34,6 @@ public class CartFragment extends Fragment implements CartInterface{
 
         rDBm = new DBModel();
         rDBm.load(getActivity().getApplicationContext());
-        //list = rDBm.getAllCartData();
         list = MainActivity.theCart.getCart();
         checkoutButton = v.findViewById(R.id.checkout);
 
@@ -72,6 +71,17 @@ public class CartFragment extends Fragment implements CartInterface{
         Bundle args = new Bundle();
         args.putString("menuID", list.get(position).getId());
         fragment.setArguments(args);
+        FragmentManager frag = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = frag.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onRemoveClick(int position) {
+        MainActivity.theCart.removeItem(list.get(position));
+        Fragment fragment = new CartFragment();
         FragmentManager frag = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = frag.beginTransaction();
         fragmentTransaction.replace(R.id.fragment, fragment);

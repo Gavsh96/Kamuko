@@ -18,7 +18,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartVH> {
     public CartAdapter(DBModel rDBm, CartInterface cartInterface)
     {
         this.rDBm = rDBm;
-        //list = rDBm.getAllCartData();
         list = MainActivity.theCart.getCart();
         this.cartInterface = cartInterface;
     }

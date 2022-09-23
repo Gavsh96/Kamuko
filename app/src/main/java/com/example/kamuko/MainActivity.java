@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         restImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
                 startActivity(intent);
             }

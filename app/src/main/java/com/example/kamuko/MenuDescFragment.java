@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 public class MenuDescFragment extends Fragment {
@@ -89,16 +91,23 @@ public class MenuDescFragment extends Fragment {
         addCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Cart cItem = new Cart(allMenu.get(pos).getId(), allMenu.get(pos).getName(), count, allMenu.get(pos).getPrice()*count);
-                MainActivity.theCart.addCart(cItem);
-                //rDBm.addCartItem(cItem);
+                if(count == 0)
+                {
+                    View av = v.findViewById(R.id.addToCart);
+                    Snackbar snackbar = Snackbar.make(av, "Value Zero Not Allowed!", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                }
+                else
+                {
+                    Cart cItem = new Cart(allMenu.get(pos).getId(), allMenu.get(pos).getName(), count, allMenu.get(pos).getPrice()*count);
+                    MainActivity.theCart.addCart(cItem);
+                }
             }
         });
 
         buttonCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //cart = rDBm.getAllCartData();
                 cart = MainActivity.theCart.getCart();
                 Fragment fragment;
                 if(cart.isEmpty())

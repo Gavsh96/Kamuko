@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 /**
@@ -135,7 +137,9 @@ public class CartDescFragment extends Fragment {
             public void onClick(View view) {
                 if(count == 0)
                 {
-                    MainActivity.theCart.removeItem(cart.get(pos));
+                    View av = v.findViewById(R.id.addToCart);
+                    Snackbar snackbar = Snackbar.make(av, "Value Zero Not Allowed!", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
                 }
                 else
                 {
