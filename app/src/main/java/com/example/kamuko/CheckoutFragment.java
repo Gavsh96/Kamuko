@@ -8,57 +8,107 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CheckoutFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Iterator;
+
 public class CheckoutFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public CheckoutFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CheckoutFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CheckoutFragment newInstance(String param1, String param2) {
-        CheckoutFragment fragment = new CheckoutFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private DBModel rDBm;
+    private ArrayList<LoggedIn> lI;
+    private ArrayList<Restaurant> rest;
+    private ArrayList<Menu> menu;
+    private Iterator<Cart> itU;
+    private Iterator<Restaurant> it;
+    private Iterator<Menu> it2;
+    private ArrayList<Cart> list;
+    private Calendar c = Calendar.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_checkout, container, false);
+        View view = inflater.inflate(R.layout.fragment_checkout, container, false);
+
+        rDBm = new DBModel();
+        rDBm.load(getActivity().getApplicationContext());
+        lI = rDBm.getAllLoggedIn();
+        rest = rDBm.getAllRestaurant();
+        menu = rDBm.getAllMenu();
+        list = MainActivity.theCart.getCart();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String strDate = sdf.format(c.getTime());
+
+        OrderHistory oH  = new OrderHistory(lI.get(0).getUserId(),makeString(),strDate,getRestname(), TotalCost());
+        rDBm.addOrderHistory(oH);
+
+        return view;
+    }
+
+    private String makeString()
+    {
+        String items = "";
+        itU = list.iterator();
+
+        while (itU.hasNext())
+        {
+            Cart cItems = itU.next();
+            items = items +" "+ cItems.getCount() +" "+ cItems.getMenuName();
+        }
+
+        return items;
+    }
+
+    private Double TotalCost()
+    {
+        double cost = 0;
+        itU = list.iterator();
+
+        while (itU.hasNext())
+        {
+            Cart cItems = itU.next();
+            cost = cost + cItems.getPrice();
+        }
+
+        return cost;
+    }
+
+    private String getRestname()
+    {
+        String cId = list.get(0).getId();
+        String RestId = searchMenu(cId);
+
+        return searchName(RestId);
+    }
+
+    private String searchMenu(String menId)
+    {
+        it2 = menu.iterator();
+
+        while (it2.hasNext())
+        {
+            Menu men = it2.next();
+            if(men.getId().equals(menId))
+            {
+                return men.getRestId();
+            }
+        }
+        return null;
+    }
+
+    private String searchName(String nameId)
+    {
+        it = rest.iterator();
+
+        while (it.hasNext())
+        {
+            Restaurant rest = it.next();
+            if(rest.getId().equals(nameId))
+            {
+                return rest.getName();
+            }
+        }
+        return null;
     }
 }
