@@ -28,6 +28,7 @@ public class LoginFrag extends Fragment {
     private EditText passwordIn;
     private Button Login;
     private Button Register;
+    private Button OrderHistoryBt;
     private Button SignOut;
     private String userID;
     private String password;
@@ -53,10 +54,12 @@ public class LoginFrag extends Fragment {
         passwordIn = view.findViewById(R.id.passwordIn);
         Login = view.findViewById(R.id.loginBt);
         Register = view.findViewById(R.id.registerBt);
+        OrderHistoryBt = view.findViewById(R.id.oHBt);
         SignOut = view.findViewById(R.id.signoutBt);
         notification = view.findViewById(R.id.notification);
 
         SignOut.setEnabled(!loggedIn.isEmpty() && loggedIn.size() < 2);
+        OrderHistoryBt.setEnabled(!loggedIn.isEmpty() && loggedIn.size() < 2);
         emailIn.addTextChangedListener(textDetector);
         passwordIn.addTextChangedListener(textDetector);
 
@@ -78,15 +81,15 @@ public class LoginFrag extends Fragment {
                     rDBm.addLoggedIn(lI);
                     String name = user.getName();
                     loggedIn = rDBm.getAllLoggedIn();
-                    notification.setText(name+" logged in !"+loggedIn.size());
+                    notification.setText(name+" logged in !");
+                    SignOut.setEnabled(!loggedIn.isEmpty() && loggedIn.size() < 2);
+                    OrderHistoryBt.setEnabled(!loggedIn.isEmpty() && loggedIn.size() < 2);
                 }
                 else
                 {
                     notification.setText("This user is not registered !");
                 }
 
-                loggedIn = rDBm.getAllLoggedIn();
-                SignOut.setEnabled(!loggedIn.isEmpty() && loggedIn.size() < 2);
             }
 
         });
@@ -98,6 +101,18 @@ public class LoginFrag extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.LAfragment1, regFrag);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        OrderHistoryBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment oHFrag = new OrderHistoryFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.LAfragment1, oHFrag);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
