@@ -46,7 +46,6 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryVH> {
         holder.items.setText(oH2.get(position).getItems());
         holder.cost.setText(oH2.get(position).getCost().toString());
         holder.date.setText(oH2.get(position).getDate());
-        holder.time.setText(oH2.get(position).getTime());
     }
 
     @Override

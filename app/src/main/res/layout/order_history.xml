@@ -47,15 +47,6 @@
             android:text="Date"
             android:textSize="16dp"></TextView>
 
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:text="Time"
-            android:textSize="16dp"></TextView>
-
     </LinearLayout>
 
 </LinearLayout>

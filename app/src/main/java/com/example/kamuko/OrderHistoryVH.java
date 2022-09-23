@@ -11,7 +11,6 @@ public class OrderHistoryVH extends RecyclerView.ViewHolder {
     public TextView items;
     public TextView cost;
     public TextView date;
-    public TextView time;
 
     public OrderHistoryVH(@NonNull View itemView) {
         super(itemView);
@@ -19,6 +18,5 @@ public class OrderHistoryVH extends RecyclerView.ViewHolder {
         items = itemView.findViewById(R.id.items);
         cost = itemView.findViewById(R.id.cost);
         date = itemView.findViewById(R.id.date);
-        time = itemView.findViewById(R.id.time);
     }
 }

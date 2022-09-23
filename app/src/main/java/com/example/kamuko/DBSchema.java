@@ -37,7 +37,6 @@ public class DBSchema {
             public static final String ID = "userId";
             public static final String ITEMS = "items";
             public static final String DATE = "date";
-            public static final String TIME = "time";
             public static final String RESTNAME = "restaurantName";
             public static final String COST = "cost";
         }

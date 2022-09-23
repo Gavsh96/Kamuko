@@ -161,7 +161,6 @@ public class DBModel {
         cv.put(DBSchema.orderHistoryTable.Cols.ID, oH.getUserId());
         cv.put(DBSchema.orderHistoryTable.Cols.ITEMS, oH.getItems());
         cv.put(DBSchema.orderHistoryTable.Cols.DATE, oH.getDate());
-        cv.put(DBSchema.orderHistoryTable.Cols.TIME, oH.getTime());
         cv.put(DBSchema.orderHistoryTable.Cols.RESTNAME, oH.getRestaurantName());
         cv.put(DBSchema.orderHistoryTable.Cols.COST, oH.getCost());
         db.insert(DBSchema.orderHistoryTable.NAME, null, cv);

@@ -5,18 +5,16 @@ public class OrderHistory {
     String userId;
     String items;
     String date;
-    String time;
     String restaurantName;
     Double cost;
 
 
 
-    public OrderHistory(String userId, String items, String date, String time, String restaurantName, Double cost)
+    public OrderHistory(String userId, String items, String date, String restaurantName, Double cost)
     {
         this.userId = userId;
         this.items = items;
         this.date = date;
-        this.time = time;
         this.restaurantName = restaurantName;
         this.cost = cost;
     }
@@ -40,10 +38,6 @@ public class OrderHistory {
     public String getDate() { return date; }
 
     public void setDate(String date) { this.date = date; }
-
-    public String getTime() { return time; }
-
-    public void setTime(String time) { this.time = time; }
 
     public String getRestaurantName() { return restaurantName; }
 

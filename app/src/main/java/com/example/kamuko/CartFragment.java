@@ -60,7 +60,7 @@ public class CartFragment extends Fragment implements CartInterface{
             public void onClick(View view) {
                 if(!rDBm.getAllLoggedIn().isEmpty())
                 {
-                    OrderHistory oH = new OrderHistory(lI.get(0).getUserId(),makeString()," ",strDate,getRestname(), TotalCost());
+                    OrderHistory oH = new OrderHistory(lI.get(0).getUserId(),makeString(),strDate,getRestname(), TotalCost());
                     rDBm.addOrderHistory(oH);
                     Fragment fragment = new CheckoutFragment();
                     FragmentManager frag = getActivity().getSupportFragmentManager();
