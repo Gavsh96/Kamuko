@@ -96,7 +96,19 @@ public class CartDescFragment extends Fragment {
             }
         }
 
-        text.setText(cart.get(pos).getMenuName());
+        try {
+            text.setText(cart.get(pos).getMenuName());
+        }
+        catch(IndexOutOfBoundsException ex)
+        {
+            Fragment fragment = new CartFragment();
+            FragmentManager frag = getActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = frag.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+
         countView.setText(String.valueOf(count));
 
         addButton.setOnClickListener(new View.OnClickListener() {
