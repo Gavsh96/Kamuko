@@ -25,9 +25,8 @@ public class OrderHistoryFragment extends Fragment {
         rDBm.load(getActivity().getApplicationContext());
         RecyclerView rv = v.findViewById(R.id.OrderHistoryRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        /*OrderHistoryAdapter adapter = new OrderHistoryAdapter(rDBm, this);
-        rv.setAdapter(adapter);*/
+        OrderHistoryAdapter adapter = new OrderHistoryAdapter(rDBm);
+        rv.setAdapter(adapter);
 
         return v;
     }

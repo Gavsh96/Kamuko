@@ -9,12 +9,14 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +36,9 @@ public class CartFragment extends Fragment implements CartInterface{
     private DBModel rDBm;
     Button checkoutButton;
     ArrayList<Cart> list;
+    ArrayList<LoggedIn> lI;
+    private Iterator<Cart> itU;
+    Time time = new Time();
 
     public CartFragment() {
         // Required empty public constructor
@@ -75,6 +80,7 @@ public class CartFragment extends Fragment implements CartInterface{
         rDBm = new DBModel();
         rDBm.load(getActivity().getApplicationContext());
         //list = rDBm.getAllCartData();
+        lI = rDBm.getAllLoggedIn();
         list = MainActivity.theCart.getCart();
         checkoutButton = v.findViewById(R.id.checkout);
 
@@ -88,6 +94,7 @@ public class CartFragment extends Fragment implements CartInterface{
             public void onClick(View view) {
                 if(!rDBm.getAllLoggedIn().isEmpty())
                 {
+                    OrderHistory oH = new OrderHistory(lI.get(0).getUserId(),makeString(),"dsad","sadsdasda","sdasdasda", 55);
                     Fragment fragment = new CheckoutFragment();
                     FragmentManager frag = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = frag.beginTransaction();
@@ -117,5 +124,19 @@ public class CartFragment extends Fragment implements CartInterface{
         fragmentTransaction.replace(R.id.fragment, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    private String makeString()
+    {
+        String items = "";
+        itU = list.iterator();
+
+        while (itU.hasNext())
+        {
+            Cart cItems = itU.next();
+            items = items +" "+ cItems.getMenuName() +" "+ cItems.getCount();
+        }
+
+        return items;
     }
 }

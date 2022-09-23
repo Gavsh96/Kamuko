@@ -109,12 +109,20 @@ public class LoginFrag extends Fragment {
         OrderHistoryBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment oHFrag = new OrderHistoryFragment();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.LAfragment1, oHFrag);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                loggedIn = rDBm.getAllLoggedIn();
+                if(!loggedIn.isEmpty())
+                {
+                    Fragment oHFrag = new OrderHistoryFragment();
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.LAfragment1, oHFrag);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+                else
+                {
+                    notification.setText("No Users logged in !");
+                }
             }
         });
 
