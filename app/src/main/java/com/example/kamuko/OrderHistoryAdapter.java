@@ -26,10 +26,9 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryVH> {
         oH = rDBm.getAllOrderHistory();
         lI = rDBm.getAllLoggedIn();
 
-       /* if(!lI.isEmpty() && !oH.isEmpty()) {
-            uID = lI.get(0).getUserId();
-            searchOH(uID);
-        }*/
+        uID = lI.get(0).getUserId();
+        searchOH(uID);
+
     }
 
     @NonNull
@@ -43,16 +42,16 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryVH> {
 
     @Override
     public void onBindViewHolder(@NonNull OrderHistoryVH holder, int position) {
-        holder.restName.setText(oH.get(position).getRestaurantName());
-        holder.items.setText(oH.get(position).getItems());
-        holder.cost.setText(oH.get(position).getCost().toString());
-        holder.date.setText(oH.get(position).getDate());
-        holder.time.setText(oH.get(position).getTime());
+        holder.restName.setText(oH2.get(position).getRestaurantName());
+        holder.items.setText(oH2.get(position).getItems());
+        holder.cost.setText(oH2.get(position).getCost().toString());
+        holder.date.setText(oH2.get(position).getDate());
+        holder.time.setText(oH2.get(position).getTime());
     }
 
     @Override
     public int getItemCount() {
-        return oH.size();
+        return oH2.size();
     }
 
     private void searchOH(String userID)
