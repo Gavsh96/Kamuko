@@ -3,10 +3,17 @@ package com.example.kamuko;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +30,15 @@ public class CartDescFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    TextView text;
+    TextView countView;
+    Button addButton;
+    Button subButton;
+    Button buttonCart;
+    Button addCart;
+    ArrayList<Cart> cart;
+    int pos;
+    int count;
 
     public CartDescFragment() {
         // Required empty public constructor
@@ -59,6 +75,85 @@ public class CartDescFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart_desc, container, false);
+        View v = inflater.inflate(R.layout.fragment_cart_desc, container, false);
+
+        text = v.findViewById(R.id.menuText);
+        addButton = v.findViewById(R.id.plusButton);
+        subButton = v.findViewById(R.id.minusButton);
+        countView = v.findViewById(R.id.quantity);
+        buttonCart = v.findViewById(R.id.cartButton);
+        addCart = v.findViewById(R.id.addToCart);
+
+        String id = getArguments().getString("menuID");
+        cart = MainActivity.theCart.getCart();
+
+        for (int i = 0; i < cart.size(); i++)
+        {
+            if(cart.get(i).getId().equals(id))
+            {
+                pos = i;
+                count = cart.get(i).getCount();
+            }
+        }
+
+        text.setText(cart.get(pos).getMenuName());
+        countView.setText(String.valueOf(count));
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count = count +1;
+                countView.setText(String.valueOf(count));
+            }
+        });
+
+        subButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(count > 0)
+                {
+                    count = count - 1;
+                    countView.setText(String.valueOf(count));
+                }
+            }
+        });
+
+        addCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(count == 0)
+                {
+                    MainActivity.theCart.removeItem(cart.get(pos));
+                }
+                else
+                {
+                    Cart newItem = new Cart(cart.get(pos).getId(), cart.get(pos).getMenuName(), count, cart.get(pos).getPrice()*count);
+                    MainActivity.theCart.addCart(newItem);
+                    MainActivity.theCart.removeItem(cart.get(pos));
+                }
+            }
+        });
+
+        buttonCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment;
+                if(cart.isEmpty())
+                {
+                    fragment = new EmptyCartFragment();
+                }
+                else
+                {
+                    fragment = new CartFragment();
+                }
+                FragmentManager frag = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = frag.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        return v;
     }
 }

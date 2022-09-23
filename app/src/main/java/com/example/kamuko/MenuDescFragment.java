@@ -51,27 +51,7 @@ public class MenuDescFragment extends Fragment {
 
         String id = getArguments().getString("menuID");
         ArrayList<Menu> allMenu = rDBm.getAllMenu();
-
-        // From this point onwards was newly added for Cart Description
-        // Though this code is temporary till finding a better approach
-        ArrayList<Cart> items = rDBm.getAllCartData();
-        if(!items.isEmpty())
-        {
-            for (Cart item: items)
-            {
-                if(item.getId().equals(id))
-                {
-                    count = item.getCount();
-                    break;
-                }
-            }
-        }
-        else
-        {
-            count = 0;
-        }
-        // From point ends temporary code
-
+        count = 0;
         pos = 0;
 
         for(int i = 0; i < allMenu.size(); i++)
@@ -98,8 +78,11 @@ public class MenuDescFragment extends Fragment {
         subButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                count = count - 1;
-                countView.setText(String.valueOf(count));
+                if(count > 0)
+                {
+                    count = count - 1;
+                    countView.setText(String.valueOf(count));
+                }
             }
         });
 
@@ -107,14 +90,16 @@ public class MenuDescFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Cart cItem = new Cart(allMenu.get(pos).getId(), allMenu.get(pos).getName(), count, allMenu.get(pos).getPrice()*count);
-                rDBm.addCartItem(cItem);
+                MainActivity.theCart.addCart(cItem);
+                //rDBm.addCartItem(cItem);
             }
         });
 
         buttonCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cart = rDBm.getAllCartData();
+                //cart = rDBm.getAllCartData();
+                cart = MainActivity.theCart.getCart();
                 Fragment fragment;
                 if(cart.isEmpty())
                 {

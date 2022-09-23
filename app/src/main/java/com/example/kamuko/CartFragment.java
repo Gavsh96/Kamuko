@@ -74,7 +74,8 @@ public class CartFragment extends Fragment implements CartInterface{
 
         rDBm = new DBModel();
         rDBm.load(getActivity().getApplicationContext());
-        list = rDBm.getAllCartData();
+        //list = rDBm.getAllCartData();
+        list = MainActivity.theCart.getCart();
         checkoutButton = v.findViewById(R.id.checkout);
 
         RecyclerView rv = v.findViewById(R.id.CartRecyclerView);
@@ -107,7 +108,7 @@ public class CartFragment extends Fragment implements CartInterface{
 
     @Override
     public void onCartClick(int position) {
-        Fragment fragment = new MenuDescFragment();
+        Fragment fragment = new CartDescFragment();
         Bundle args = new Bundle();
         args.putString("menuID", list.get(position).getId());
         fragment.setArguments(args);

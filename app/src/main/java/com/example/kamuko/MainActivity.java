@@ -10,12 +10,15 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static Basket theCart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageView restImage = findViewById(R.id.restImage);
         ImageView loginImage = findViewById(R.id.loginImage);
+        theCart = new Basket();
 
         DBModel rDBm = new DBModel();
         rDBm.load(getApplicationContext());
