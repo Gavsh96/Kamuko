@@ -55,22 +55,29 @@ public class MainActivity extends AppCompatActivity {
     {
         //Creating Restaurants
         Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", R.drawable.restaurant);
+        Menu r1m1 = new Menu("1", "Spicy Chicken Wings", R.drawable.sscw, r1.getId(), 1555.00, "Authentic Texas Chicken Wings");
+        Menu r1m2 = new Menu("2", "Crispy Chicken", R.drawable.cc, r1.getId(), 1500.00, "Batter fried chicken");
+        Menu r1m3 = new Menu("3", "Shamika Special", R.drawable.shamikas, r1.getId(), 3000.00, "Chicken Burger with Shamika's Spicy sauce");
+        Menu r1m4 = new Menu("4", "Nai Miris Chicken Wings", R.drawable.naicw, r1.getId(), 2650.00, "Ultra Pro Max Spicy Chicken Wings");
+        Menu r1m5 = new Menu("5", "Orange Juice", R.drawable.oj, r1.getId(), 250.00, "Fresh orange juice");
+        Menu r1m6 = new Menu("6", "Fruit Salad", R.drawable.fs, r1.getId(), 255.00, "Fresh fruit salad");
 
-        Restaurant r2 = new Restaurant("1235", "Posh By Akbho", R.drawable.restaurant);
-        Menu r2m1 = new Menu("1", "Posh Fries", R.drawable.profile, r2.getId(), 100.00, "Test");
-        Menu r2m2 = new Menu("2", "Chicken Posh Burger", R.drawable.profile, r2.getId(), 100.00, "Test");
-        Menu r2m3 = new Menu("3", "Spicy Beef Burger", R.drawable.profile, r2.getId(), 100.00, "Test");
-        Menu r2m4 = new Menu("4", "Nai Miris Pork Posh Burger", R.drawable.profile, r2.getId(), 100.00, "Test");
-        Menu r2m5 = new Menu("5", "Gon Wada Special", R.drawable.profile, r2.getId(), 100.00, "Test");
-        Menu r2m6 = new Menu("6", "Gon Wada Ultra", R.drawable.profile, r2.getId(), 100.00, "Test");
 
-        Restaurant r3 = new Restaurant("1236", "Gav's Pizza", R.drawable.restaurant);
-        Menu r3m1 = new Menu("7", "Cheese Pizza", R.drawable.profile, r3.getId(), 100.00, "Test");
-        Menu r3m2 = new Menu("8", "Pattah Spicy Beef Pizza", R.drawable.profile, r3.getId(), 100.00, "Test");
-        Menu r3m3 = new Menu("9", "Lankan Pizza", R.drawable.profile, r3.getId(), 100.00, "Test");
-        Menu r3m4 = new Menu("10", "Nai Miris Pizza", R.drawable.profile, r3.getId(), 100.00, "Test");
-        Menu r3m5 = new Menu("11", "Gindara Cake", R.drawable.profile, r3.getId(), 100.00, "Test");
-        Menu r3m6 = new Menu("12", "Seethala Cake", R.drawable.profile, r3.getId(), 100.00, "Test");
+        Restaurant r2 = new Restaurant("1235", "Posh Akbho's", R.drawable.poshakbo);
+        Menu r2m1 = new Menu("1", "Posh Fries", R.drawable.chickenfries, r2.getId(), 1235.00, "Salted Fires with Chicken");
+        Menu r2m2 = new Menu("2", "Chicken Posh Burger", R.drawable.akbhocb, r2.getId(), 6000.00, "Chicken Burger made with the finest ingredients");
+        Menu r2m3 = new Menu("3", "Spicy Beef Burger", R.drawable.akbhobb, r2.getId(), 2200.00, "Beef Burger with Akbho's Spicy sauce");
+        Menu r2m4 = new Menu("4", "Nai Miris Pork Posh Burger", R.drawable.naib, r2.getId(), 2550.00, "Ultra Pro Max Spicy Pork Burger");
+        Menu r2m5 = new Menu("5", "Gon Wada Special", R.drawable.gws, r2.getId(), 2500.00, "Fired Rice with Akbho's favorite ingredients");
+        Menu r2m6 = new Menu("6", "Gon Wada Ultra", R.drawable.gwu, r2.getId(), 2555.00, "Fired Noodles with Akbho's favorite ingredients");
+
+        Restaurant r3 = new Restaurant("1236", "Gav's Pizza", R.drawable.gavpizza);
+        Menu r3m1 = new Menu("7", "Cheese Pizza", R.drawable.cp, r3.getId(), 1550.00, "Authentic italian cheese pizza");
+        Menu r3m2 = new Menu("8", "Pattah Spicy Beef Pizza", R.drawable.bp, r3.getId(), 2220.00, "Pizza with large pieces of beef and a spicy sauce");
+        Menu r3m3 = new Menu("9", "Lankan Pizza", R.drawable.slp, r3.getId(), 2100.00, "Pizza with a Sri Lankan twist");
+        Menu r3m4 = new Menu("10", "Nai Miris Pizza", R.drawable.sp, r3.getId(), 2100.00, "A super spicy pizza");
+        Menu r3m5 = new Menu("11", "Gindara Cake", R.drawable.gc, r3.getId(), 350.00, "10 times more better than your normal lava cake");
+        Menu r3m6 = new Menu("12", "Seethala Cake", R.drawable.sc, r3.getId(), 350.00, "Eat this is you wanna chill");
 
         Restaurant r4 = new Restaurant("1237", "Matara Bath kade", R.drawable.matarabathkade);
         Menu r4m1 = new Menu("13", "Chicken Rice & Curry", R.drawable.matarachickenrice, r4.getId(), 100.00, "Test");
@@ -85,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 "cut and dipped in a flavourful batter and fried to crispy perfection");
         Menu r5m2 = new Menu("20", "Chicken Burger", R.drawable.kfczinger, r5.getId(), 1500.00, "A flavourful " +
                 "burger bun filled with skinless chicken breast dipped in a batter and fired");
-        Menu r5m3 = new Menu("21", "Beef Burger", R.drawable.kfcbeef, r5.getId(), 100.00, "A burger bun " +
+        Menu r5m3 = new Menu("21", "Beef Burger", R.drawable.kfcbeef, r5.getId(), 1650.00, "A burger bun " +
                 "that's beef instead of chicken");
         Menu r5m4 = new Menu("22", "Chicken Sawan", R.drawable.kfcsawan, r5.getId(), 3000.00, "A chicken Sawan " +
                 "topped with our own gravy and fried chicken. Serves 4 people!");
@@ -153,6 +160,13 @@ public class MainActivity extends AppCompatActivity {
         rDBm.addRestaurant(r7);
         rDBm.addRestaurant(r8);
         rDBm.addRestaurant(r9);
+
+        rDBm.addMenu(r1m1);
+        rDBm.addMenu(r1m2);
+        rDBm.addMenu(r1m3);
+        rDBm.addMenu(r1m4);
+        rDBm.addMenu(r1m5);
+        rDBm.addMenu(r1m6);
 
         rDBm.addMenu(r2m1);
         rDBm.addMenu(r2m2);
