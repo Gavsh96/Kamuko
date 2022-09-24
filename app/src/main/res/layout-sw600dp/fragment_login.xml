@@ -8,7 +8,7 @@
     tools:context=".LoginFrag">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -46,15 +46,14 @@
             android:id="@+id/loginBt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:enabled="false"/>
+            android:enabled="false"
+            android:text="Login" />
 
         <Button
             android:id="@+id/registerBt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register"
-            />
+            android:text="Register" />
 
         <Button
             android:id="@+id/signoutBt"
@@ -72,6 +71,7 @@
             android:id="@+id/notification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="20sp" />
 
