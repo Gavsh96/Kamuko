@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         rDBm.deleteAllRestaurants();
         rDBm.deleteAllMenu();
-        rDBm.removeAllItems();
-        rDBm.deleteAllUser();
         CreateRestaurants(rDBm);
 
         FragmentManager frag = getSupportFragmentManager();
@@ -80,12 +78,18 @@ public class MainActivity extends AppCompatActivity {
         Menu r3m6 = new Menu("18", "Seethala Cake", R.drawable.sc, r3.getId(), 350.00, "Eat this is you wanna chill");
 
         Restaurant r4 = new Restaurant("1237", "Matara Bath kade", R.drawable.matarabathkade);
-        Menu r4m1 = new Menu("19", "Chicken Rice & Curry", R.drawable.matarachickenrice, r4.getId(), 100.00, "Test");
-        Menu r4m2 = new Menu("20", "Chicken Fried Rice", R.drawable.matarafried, r4.getId(), 100.00, "Test");
-        Menu r4m3 = new Menu("21", "Pork Noodles", R.drawable.mataranoodles, r4.getId(), 100.00, "Test");
-        Menu r4m4 = new Menu("22", "Pol Rotti & Chicken Curry", R.drawable.matararotti, r4.getId(), 100.00, "Test");
-        Menu r4m5 = new Menu("23", "Egg Hoppers", R.drawable.matarahopper, r4.getId(), 100.00, "Test");
-        Menu r4m6 = new Menu("24", "String Hoppers", R.drawable.matarastring, r4.getId(), 100.00, "Test");
+        Menu r4m1 = new Menu("19", "Chicken Rice & Curry", R.drawable.matarachickenrice, r4.getId(), 300.00, "Sri lankan style " +
+                "rice and curry with a scrumptious chicken drumstick");
+        Menu r4m2 = new Menu("20", "Chicken Fried Rice", R.drawable.matarafried, r4.getId(), 500.00, "Finest Basmathi rice fried " +
+                "on a chinese wok and topped with deviled chicken and chilli paste");
+        Menu r4m3 = new Menu("21", "Pork Noodles", R.drawable.mataranoodles, r4.getId(), 400.00, "Harischandra noodles with " +
+                "the countries best pork curry");
+        Menu r4m4 = new Menu("22", "Pol Rotti & Chicken Curry", R.drawable.matararotti, r4.getId(), 250.00, "Rotti made with " +
+                "shredded coconut and severed with a side of chicken curry");
+        Menu r4m5 = new Menu("23", "Egg Hoppers", R.drawable.matarahopper, r4.getId(), 100.00, "Hoppers with a bull's eye in " +
+                "the middle");
+        Menu r4m6 = new Menu("24", "String Hoppers", R.drawable.matarastring, r4.getId(), 60.00, "Hoppers made in the shape " +
+                "of strings");
 
         Restaurant r5 = new Restaurant("1238", "KFC", R.drawable.kfcimage);
         Menu r5m1 = new Menu("25", "Fries", R.drawable.kfcfries, r5.getId(), 500.00, "Fresh;y picked potatoes " +
@@ -223,8 +227,5 @@ public class MainActivity extends AppCompatActivity {
         rDBm.addMenu(r9m4);
         rDBm.addMenu(r9m5);
         rDBm.addMenu(r9m6);
-
-        User u1 = new User("1234ga", "ppsmols", "123456");
-        rDBm.addUser(u1);
     }
 }

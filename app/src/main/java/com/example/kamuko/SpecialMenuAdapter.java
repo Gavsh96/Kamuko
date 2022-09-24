@@ -24,12 +24,12 @@ public class SpecialMenuAdapter extends RecyclerView.Adapter<SpecialMenuVH> {
         ArrayList<Integer> list = new ArrayList<>();
         int temp;
 
-        for(int i = 13; i < 30; i++)
+        for(int i = 1; i < 54; i++)
         {
             list.add(i);
         }
         Collections.shuffle(list);
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 10; i++)
         {
             menuList.add(allMenu.get(list.get(i)));
         }
