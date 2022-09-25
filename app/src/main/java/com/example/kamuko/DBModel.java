@@ -85,45 +85,6 @@ public class DBModel {
         db.delete(DBSchema.menuTable.NAME, null, null);
     }
 
-    public void addCartItem(Cart item)
-    {
-        ContentValues cv = new ContentValues();
-        cv.put(DBSchema.cartTable.Cols.ID, item.getId());
-        cv.put(DBSchema.cartTable.Cols.MENUNAME, item.getMenuName());
-        cv.put(DBSchema.cartTable.Cols.COUNT, item.getCount());
-        cv.put(DBSchema.cartTable.Cols.PRICE, item.getPrice());
-        db.insert(DBSchema.cartTable.NAME, null, cv);
-    }
-
-    public ArrayList<Cart> getAllCartData(){
-        ArrayList<Cart> cartList = new ArrayList<>();
-        Cursor cursor = db.query(DBSchema.cartTable.NAME,null,null,null,null,null,null);
-        DBCursor DBCursor = new DBCursor(cursor);
-
-        try{
-            DBCursor.moveToFirst();
-            while(!DBCursor.isAfterLast()){
-                cartList.add(DBCursor.getCartItem());
-                DBCursor.moveToNext();
-            }
-        }
-        finally {
-            cursor.close();
-        }
-        return cartList;
-    }
-
-    public void removeCartItem(Cart item)
-    {
-        String[] temp = {item.getId()};
-        //db.delete(DBSchema.cartTable.NAME, DBSchema.cartTable.Cols.ID, temp);
-        db.execSQL("DELETE FROM "+DBSchema.cartTable.NAME+" WHERE "+DBSchema.cartTable.Cols.ID+" = "+item.getId()+"");
-    }
-
-    public void removeAllItems()
-    {
-        db.delete(DBSchema.cartTable.NAME, null, null);
-    }
 
     public void addUser(User user){
         ContentValues cv = new ContentValues();

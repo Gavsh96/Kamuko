@@ -51,12 +51,4 @@ public class DBCursor extends CursorWrapper {
         return  new LoggedIn(userId, name);
     }
 
-    public Cart getCartItem()
-    {
-        String id = getString(getColumnIndex(DBSchema.cartTable.Cols.ID));
-        String name = getString(getColumnIndex(DBSchema.cartTable.Cols.MENUNAME));
-        int count = getInt(getColumnIndex(DBSchema.cartTable.Cols.COUNT));
-        double price = getDouble(getColumnIndex(DBSchema.cartTable.Cols.PRICE));
-        return new Cart(id, name, count, price);
-    }
 }

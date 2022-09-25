@@ -54,7 +54,7 @@ public class CheckoutFragment extends Fragment {
         while (itU.hasNext())
         {
             Cart cItems = itU.next();
-            items = items +" "+ cItems.getCount() +" "+ cItems.getMenuName();
+            items = items +" "+ cItems.getCount() +" "+ cItems.getMenuName() +" "+ cItems.getPrice();
         }
 
         return items;

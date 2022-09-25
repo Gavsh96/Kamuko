@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private void CreateRestaurants(DBModel rDBm)
     {
         //Creating Restaurants
-        Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", R.drawable.restaurant);
+        Restaurant r1 = new Restaurant("1234", "Shamika's Chicken Shop", R.drawable.shamichiken);
         Menu r1m1 = new Menu("1", "Spicy Chicken Wings", R.drawable.sscw, r1.getId(), 1555.00, "Authentic Texas Chicken Wings");
         Menu r1m2 = new Menu("2", "Crispy Chicken", R.drawable.cc, r1.getId(), 1500.00, "Batter fried chicken");
         Menu r1m3 = new Menu("3", "Shamika Special", R.drawable.shamikas, r1.getId(), 3000.00, "Chicken Burger with Shamika's Spicy sauce");
@@ -134,13 +134,13 @@ public class MainActivity extends AppCompatActivity {
         Menu r7m6 = new Menu("42", "Jjigae", R.drawable.seouljjigae, r7.getId(), 2200.00, "Korean stew made with " +
                 "meat in a broth seasoned with chilli paste, soy bean paste and soy sauce");
 
-        Restaurant r8 = new Restaurant("1241", "Hotel De Pilawoos", R.drawable.restaurant);
-        Menu r8m1 = new Menu("43", "Cheese Kotthu", R.drawable.profile, r8.getId(), 1100.00, "Test");
-        Menu r8m2 = new Menu("44", "Fried Beef Kotthu", R.drawable.profile, r8.getId(), 1250.00, "Test");
-        Menu r8m3 = new Menu("45", "Egg Rotti", R.drawable.profile, r8.getId(), 660.00, "Test");
-        Menu r8m4 = new Menu("46", "Chicken Curry", R.drawable.profile, r8.getId(), 550.00, "Test");
-        Menu r8m5 = new Menu("47", "Iced Milo", R.drawable.profile, r8.getId(), 350.00, "Test");
-        Menu r8m6 = new Menu("48", "Fruit Cake", R.drawable.profile, r8.getId(), 250.00, "Test");
+        Restaurant r8 = new Restaurant("1241", "Hotel De Pilawoos", R.drawable.pillawooslogo);
+        Menu r8m1 = new Menu("43", "Cheese Kotthu", R.drawable.ckotthu, r8.getId(), 1100.00, "Famous Sri Lankan kotthu with cheese");
+        Menu r8m2 = new Menu("44", "Fried Beef Kotthu", R.drawable.bkotthu, r8.getId(), 1250.00, "Famous Sri Lankan kotthu with fired beef");
+        Menu r8m3 = new Menu("45", "Egg Rotti", R.drawable.eggrotti, r8.getId(), 660.00, "Sri Lankan egg rotti");
+        Menu r8m4 = new Menu("46", "Chicken Curry", R.drawable.ccurry, r8.getId(), 550.00, "Authentic Sri Lankan chicken curry");
+        Menu r8m5 = new Menu("47", "Iced Milo", R.drawable.milo, r8.getId(), 350.00, "A chilled Milo");
+        Menu r8m6 = new Menu("48", "Fruit Cake", R.drawable.fcake, r8.getId(), 250.00, "Freshly baked fruit cake");
 
         Restaurant r9 = new Restaurant("1242", "Taj Palace", R.drawable.indianimage);
         Menu r9m1 = new Menu("49", "Samosa", R.drawable.samosa, r9.getId(), 120.00, "Fried Pastry with a savory filling " +
@@ -155,6 +155,14 @@ public class MainActivity extends AppCompatActivity {
         Menu r9m6 = new Menu("54", "Gulab Jamun", R.drawable.gulabjamun, r9.getId(), 500.00, "A sweet confectionary made " +
                 "with milk solids and garnished with dried nuts");
 
+        Restaurant r10 = new Restaurant("1243", "Chocolate Paradise", R.drawable.chocologo);
+        Menu r10m1 = new Menu("55", "Chocolate Milkshake", R.drawable.cmilkshake, r10.getId(), 500.00, "Chilled Chocolate Milkshake");
+        Menu r10m2 = new Menu("56", "Chocolate Pancakes", R.drawable.cpancake, r10.getId(), 350.00, "Fresh Chocolate Pancakes");
+        Menu r10m3 = new Menu("57", "Mars Bar", R.drawable.marsbar, r10.getId(), 660.00, "Imported Mars Bar");
+        Menu r10m4 = new Menu("58", "Kandos Bar", R.drawable.kandos, r10.getId(), 550.00, "Authentic Sri Lankan Kandos Chocolate");
+        Menu r10m5 = new Menu("59", "Hot Chocolate", R.drawable.hotc, r10.getId(), 350.00, "A hot chocolate served with a chocolate chip cookie");
+        Menu r10m6 = new Menu("60", "Chocolate Cake", R.drawable.ccake, r10.getId(), 250.00, "Freshly baked chocolate cake");
+
         rDBm.addRestaurant(r1);
         rDBm.addRestaurant(r2);
         rDBm.addRestaurant(r3);
@@ -164,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
         rDBm.addRestaurant(r7);
         rDBm.addRestaurant(r8);
         rDBm.addRestaurant(r9);
+        rDBm.addRestaurant(r10);
 
         rDBm.addMenu(r1m1);
         rDBm.addMenu(r1m2);
@@ -227,5 +236,12 @@ public class MainActivity extends AppCompatActivity {
         rDBm.addMenu(r9m4);
         rDBm.addMenu(r9m5);
         rDBm.addMenu(r9m6);
+
+        rDBm.addMenu(r10m1);
+        rDBm.addMenu(r10m2);
+        rDBm.addMenu(r10m3);
+        rDBm.addMenu(r10m4);
+        rDBm.addMenu(r10m5);
+        rDBm.addMenu(r10m6);
     }
 }
