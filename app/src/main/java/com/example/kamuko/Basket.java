@@ -21,6 +21,8 @@ public class Basket
         cart.remove(item);
     }
 
+    public void removeAllItems(){cart.clear();}
+
     public ArrayList<Cart> getCart()
     {
         return cart;

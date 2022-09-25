@@ -42,6 +42,7 @@ public class CheckoutFragment extends Fragment {
 
         OrderHistory oH  = new OrderHistory(lI.get(0).getUserId(),makeString(),strDate,getRestname(), TotalCost());
         rDBm.addOrderHistory(oH);
+        MainActivity.theCart.removeAllItems();
 
         return view;
     }
